@@ -1,0 +1,17 @@
+export(dontAsk,
+       is.gui,
+       guiAdd,
+       guiAsk,
+       "guiAsk<-",
+       guiChange,
+       guiList,
+       guiRemove,
+       guiWidgets,
+       "guiWidgets<-",
+       setUI,
+       startUI)
+
+S3method("$", gui)
+S3method(print, gui)
+S3method(setUI, gui)
+S3method(setUI, gui)

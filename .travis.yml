@@ -22,6 +22,10 @@ notifications:
   email:
     on_success: change
     on_failure: change
+
+# covr is not a dependency for the package. So, install it explicitly
+r_binary_packages:
+  - covr
  
 after_success:
   - Rscript -e 'covr::codecov()'

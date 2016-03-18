@@ -1,5 +1,10 @@
 = svGUI News
 
+== Changes in svGUI 0.9-56
+
+* Switch to Github for development; CI added.
+
+
 == Changes in svGUI 0.9-55
 
 * Author and Authors@R fields reworked in the DESCRIPTION file.

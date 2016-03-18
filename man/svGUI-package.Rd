@@ -3,7 +3,7 @@
 \alias{svGUI}
 \docType{package}
 
-\title{ SciViews GUI API - Functions to manage GUIs in R }
+\title{ SciViews - Functions to manage GUIs in R }
 \description{
   The SciViews svGUI package provides function to implement GUI (Graphical User
   Interface) in R. It is independent from any particular GUI toolkit, centralize

@@ -7,7 +7,7 @@
 [![CRAN Status](http://www.r-pkg.org/badges/version/svGUI)](http://cran.r-project.org/package=svGUI)
 [![License](https://img.shields.io/badge/license-GPL-blue.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
 
-Basic GUI functions for SciViews.
+SciViews - functions to manage GUIs in R.
 
 _Build badges are as follows._
 - _Status for latest stable R version for both Linux and Mac OS X at left._
@@ -64,4 +64,4 @@ For further instructions, please, refer to these help pages.
 
 ## Note to developers
 
-This package used to be developed on R-Forge in the past. However, the latest [R-Forge version](https://r-forge.r-project.org/projects/sciviews/)) was moved to this Github repository on 2016-03-17 (SVN version 569). **Please, do not use R-forge anymore for SciViews development, use this Github repository instead.**
+This package used to be developed on R-Forge in the past. However, the latest [R-Forge version](https://r-forge.r-project.org/projects/sciviews/) was moved to this Github repository on 2016-03-17 (SVN version 569). **Please, do not use R-Forge anymore for SciViews development, use this Github repository instead.**

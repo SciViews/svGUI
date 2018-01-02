@@ -14,8 +14,8 @@
   \tabular{ll}{
     Package: \tab svGUI\cr
     Type: \tab Package\cr
-    Version: \tab 0.9-56\cr
-    Date: \tab 2015-03-17\cr
+    Version: \tab 0.9-57\cr
+    Date: \tab 2018-01-02\cr
     License: \tab GPL 2 or above, at your convenience\cr
   }
   % TODO: add description of main functions here. Also add examples

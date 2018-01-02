@@ -24,24 +24,21 @@ is.gui(x)
 }
 
 \details{
-  Methods for 'gui' objects can dispatch as usuang using
-  \code{amethod(...., gui = agui)} but note that these methods do not dispatch
-  on first provided argument, but to the named argument \code{gui}. There is
-  another way to call 'gui' methods: \code{agui$amethod(....)}. This may be a
-  convenient alternative for those who prefer this style of calling object's
-  methods.
+  Methods for 'gui' objects can dispatch using \code{amethod(...., gui = agui)}.
+  Note that these methods do not dispatch on the first argument, but to the
+  named argument \code{gui}. There is another way to call 'gui' methods:
+  \code{agui$amethod(....)}.
 }
 
 \value{
   The result of the evaluation of the method of function applied for
-  \code{agui$amethod(....)}.
-  The 'gui' object, invisibly, for \code{print()}.
+  \code{agui$amethod(....)}. The 'gui' object, invisibly, for \code{print()}.
   \code{TRUE} for \code{is.gui(x)} if the object \code{x} inherits from 'gui',
   \code{FALSE} otherwise.
 }
 
 \note{
-  The 'gui' objects are not terribly useful by themselve, but thay provide the
+  The 'gui' objects are not terribly useful by themselve, but they provide the
   fundation for a flexible organisation of GUI elements in R (see for instance
   svDialogs or svWidgets).
 }
@@ -50,14 +47,14 @@ is.gui(x)
   Philippe Grosjean <phgrosjean@sciviews.org>
 }
 
-\seealso{ \code{\link{guiAdd}} }
+\seealso{ \code{\link{gui_add}} }
 
 \examples{
-## Create a GUI
-guiAdd("myGUI")
+# Create a GUI
+gui_add("myGUI")
 is.gui(myGUI)
 myGUI
-guiRemove("myGUI")
+gui_remove("myGUI")
 }
 
 \keyword{ misc }

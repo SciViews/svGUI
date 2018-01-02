@@ -3,7 +3,6 @@ setUI <- function(..., gui = .GUI)
 
 setUI.gui <- function(fun, call, args, res, widgets, status, msg = NULL,
 ..., gui = .GUI) {
-  # Set something in the GUI
   if (!missing(call)) {
     if (!inherits(call, "call"))
       stop("'call' must be a call expression (use match.call)")
@@ -25,11 +24,11 @@ setUI.gui <- function(fun, call, args, res, widgets, status, msg = NULL,
   } else if (!is.null(msg))
     stop("You must provide 'status' at the same time as 'msg'")
   # Process ...
-  moreArgs <- list(...)
-  l <- length(moreArgs)
-  n <- names(moreArgs)
+  more_args <- list(...)
+  l <- length(more_args)
+  n <- names(more_args)
   if (l) for (i in 1:l) {
-    gui[[n[i]]] <- moreArgs[i]
+    gui[[n[i]]] <- more_args[i]
   }
   invisible(gui)
 }
@@ -40,7 +39,7 @@ startUI <- function(..., gui = .GUI)
 startUI.gui <- function(fun, call, default, widgets = NULL,
 status = "busy-modal", msg = "Displaying a modal dialog box",
 msg.no.ask = "A modal dialog box was by-passed", ..., gui = .GUI) {
-  if (dontAsk(gui)) {# Don't ask, just return default value
+  if (dont_ask(gui)) {# Just return default value
     gui$setUI(fun = fun, call = call, res = default,
       widgets = "none", status = "by-passed", msg = msg.no.ask)
     return(FALSE)

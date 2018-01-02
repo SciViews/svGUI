@@ -19,9 +19,9 @@ print.gui <- function(x, ...) {
   } else {
     cat("A SciViews user interface named ", x$name, "\n", sep = "")
   }
-  cat("using widgets from: ", paste(guiWidgets(x), collapse = ", "),
+  cat("using widgets from: ", paste(gui_widgets(x), collapse = ", "),
     "\n", sep = "")
-  if (!guiAsk(x))
+  if (!gui_ask(x))
     cat("(it is currently inactivated - ask == FALSE)\n")
   if (!is.null(x[["call"]])) {
     cat("* Last call: ", deparse(x[["call"]]), "\n" , sep = "")
@@ -40,8 +40,5 @@ print.gui <- function(x, ...) {
   invisible(x)
 }
 
-is.gui <- function (x)
-{
-	## Does this object inherits from 'gui'?
-	return(inherits(x, "gui"))
-}
+is.gui <- function(x)
+	inherits(x, "gui")

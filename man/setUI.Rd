@@ -33,14 +33,14 @@ startUI(\dots, gui = .GUI)
     non interactive mode, or ask is \code{FALSE}. }
   \item{widgets}{ the class name of the current widgets implementation. }
   \item{status}{ description of the current GUI status. Could be "ok", "busy",
-    "busy-modal" (a modal dialog box ius currently displayed), "by-passed" (the
-    GUI was by-passed because \code{dontAsk()} returns \code{TRUE}), "error",
+    "busy-modal" (a modal dialog box is currently displayed), "by-passed" (the
+    GUI was by-passed because \code{dont_ask()} returns \code{TRUE}), "error",
     or any other status indicator suitable for the current state of your GUI. }
   \item{msg}{ the message expliciting the status. Cannot be provided without
     status. }
-  \item{msg.no.ask}{ the message expliciting the status in cas the UI is
+  \item{msg.no.ask}{ the message expliciting the status in case the UI is
     by-passed. }
-  \item{\dots}{ any other property of the GUI, provided as nammed arguments. }
+  \item{\dots}{ any other property of the GUI, provided as named arguments. }
   \item{gui}{ a 'gui' object. }
 
 }
@@ -48,33 +48,33 @@ startUI(\dots, gui = .GUI)
 \value{
   The modified 'gui' object is returned invisibly by \code{setUI()}.
   For \code{startUI()} either \code{TRUE} (can start the UI), or \code{FALSE}
-  if the Ui should be by-passed.
+  if the UI should be by-passed.
 }
 
 \author{
   Philippe Grosjean <phgrosjean@sciviews.org>
 }
 
-\seealso{ \code{\link{guiAdd}}, \code{\link{$.gui}} }
+\seealso{ \code{\link{gui_add}}, \code{\link{$.gui}} }
 
 \examples{
-## Imagine you implement a new input box
-## In your function, you have this code:
+# Imagine you implement a new input box
+# In your function, you have this code:
 myInput <- function (default = "an answer", gui = .GUI) {
-    
-    ## Start a GUI action... or by-pass it!
-    if (gui$startUI("myInput", call = match.call(), default = default,
-        msg = "Displaying an imput dialog box",
-        msg.no.ask = "An input dialog box was by-passed")) {
 
-        ## Here the input dialog box is displayed and R waits from user's action
-        ## ... [your code here]
-        res <- "some results" # Imagine this is the text typed in the box
-     
-        ## When the dialog box is closed, the function should do:
-        setUI(res = res, status = NULL)
-    }
-    return(invisible(gui))
+  # Start a GUI action... or by-pass it!
+  if (gui$startUI("myInput", call = match.call(), default = default,
+    msg = "Displaying an imput dialog box",
+    msg.no.ask = "An input dialog box was by-passed")) {
+
+    # Here the input dialog box is displayed and R waits from user's action
+    # ... [your code here]
+    res <- "some results" # Imagine this is the text typed in the box
+
+    # When the dialog box is closed, the function should do:
+    setUI(res = res, status = NULL)
+  }
+  invisible(gui)
 }
 }
 

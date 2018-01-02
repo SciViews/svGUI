@@ -1,5 +1,18 @@
-export(dontAsk,
+export(dont_ask
+
        is.gui,
+       gui_add,
+       gui_ask,
+       "gui_ask<-",
+       gui_change,
+       gui_list,
+       gui_remove,
+       gui_widgets,
+       "gui_widgets<-",
+       setUI,
+       startUI,
+
+       dontAsk,
        guiAdd,
        guiAsk,
        "guiAsk<-",
@@ -7,11 +20,9 @@ export(dontAsk,
        guiList,
        guiRemove,
        guiWidgets,
-       "guiWidgets<-",
-       setUI,
-       startUI)
+       "guiWidgets<-")
 
 S3method("$", gui)
 S3method(print, gui)
 S3method(setUI, gui)
-S3method(setUI, gui)
+S3method(startUI, gui)

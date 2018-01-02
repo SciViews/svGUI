@@ -1,5 +1,11 @@
 = svGUI News
 
+== Changes in svGUI 0.9-57
+
+* Switch to snake_case function names. The camelCase version are still there for
+  backward compatibility.
+
+
 == Changes in svGUI 0.9-56
 
 * Switch to Github for development; CI added.
@@ -36,7 +42,7 @@
   stopHttpServer(), HttpServerPort, HttpServerName() & HttpClientsNames. So...
   basically, nothing much left here from previous version! But now it contains
   functions to manage 'gui' objects, used by svWidgets and svDialogs.
-  
+
 * S3 objects of class 'gui' are added. They are supposed to be created by
   guiAdd() and a series of functions is provided to manipulate them. They are
   not terribly useful by themselve, but thay provide the fundation for a
@@ -79,12 +85,12 @@
 * A new series of function to communication with a SciViews GUI client like
   Komodo/SciViews-K by using the R http help server is added. It offers a
   tcltk-free alternative to the svSocket server.
-  
+
 * The package no longer starts the socket server implemented in svSocket and it
   does not import svSocket any more. As the HTTP server is an alternative, one
   could now choose to run SciViews communication through the HTTP server without
   using svSocket, and thus, without starting Tcl/Tk any more.
-  
+
 
 == Changes in svGUI 0.9-46
 
@@ -93,7 +99,7 @@
 
 * guiRefresh() now clears active items and MRU lists in Komodo for non-defined
   active data frames and lm objects.
-  
+
 
 == Changes in svGUI 0.9-45
 

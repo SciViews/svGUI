@@ -105,8 +105,9 @@ guiRemove <- gui_remove # Backward compatibility
 #' @rdname gui_add
 gui_list <- function() {
   lst <- ls(envir = .TempEnv(), all.names = TRUE)
-  if (!length(lst))
-    return(character(0))
+  # This should never happen (default .GUI should always be there)
+  if (!length(lst)) #nocov
+    return(character(0)) # nocov
 
   # Check which item inherits from 'gui'
   lst[sapply(lst, function(x)

@@ -7,7 +7,7 @@
 \alias{is.gui}
 \title{A GUI object.}
 \usage{
-\method{$}{gui}(gui, x, args)
+\method{$}{gui}(gui, x)
 
 \method{print}{gui}(x, ...)
 
@@ -18,9 +18,9 @@ is.gui(x)
 
 \item{x}{A function for \code{$}, or an object for the others.}
 
-\item{args}{Arguments to pass to the function.}
-
 \item{...}{Further arguments (not used yet).}
+
+\item{args}{Arguments to pass to the function.}
 }
 \description{
 The \code{gui} object contains and manages GUI-related data.

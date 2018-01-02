@@ -20,20 +20,18 @@ NULL
 
 #' @export
 #' @rdname gui
-`$.gui` <- function(gui, x, args) {
+`$.gui` <- function(gui, x) {
   if (!exists(x, envir = gui))
     return(NULL)
 
-  res <- get(x, envir = gui)
-  if (is.function(res)) {
-    res <- function(...)
+  fun <- get(x, envir = gui)
+  if (is.function(fun)) {
+    fun <- function(...)
       get(x, envir = gui)(..., gui = gui)
-
-    if (!missing(args))
-      res <- do.call(res, args, envir = parent.frame())
   }
-	res
+	fun
 }
+
 #' @export
 #' @rdname gui
 print.gui <- function(x, ...) {

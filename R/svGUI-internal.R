@@ -1,13 +1,13 @@
-.onLoad <- function(lib, pkg) {
+.onLoad <- function(lib, pkg) {# nocov start
   # Create .GUI that contains information about the default GUI
   gui_add(".GUI")
-}
+}# nocov end
 
 #.onUnload <- function(libpath) {
 #  # We do nothing, because other packages may also use .GUI
 #}
 
-.packageName <- "svGUI"
+.packageName <- "svGUI" # nocov
 
 # A copy of TempEnv() from svMisc to avoid a useless dependency
 # (only internally used)

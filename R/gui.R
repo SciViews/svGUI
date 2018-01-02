@@ -4,7 +4,6 @@
 #'
 #' @param gui A `gui` object..
 #' @param x A function for `$`, or an object for the others.
-#' @param args Arguments to pass to the function.
 #' @param ... Further arguments (not used yet).
 #' @seealso [gui_add()]
 #' @keywords misc

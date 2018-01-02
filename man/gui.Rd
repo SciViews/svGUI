@@ -19,8 +19,6 @@ is.gui(x)
 \item{x}{A function for \code{$}, or an object for the others.}
 
 \item{...}{Further arguments (not used yet).}
-
-\item{args}{Arguments to pass to the function.}
 }
 \description{
 The \code{gui} object contains and manages GUI-related data.

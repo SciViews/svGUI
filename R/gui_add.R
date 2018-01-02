@@ -1,12 +1,48 @@
-# Because gui_change() can manage all cases where the GUI already exists or not
-# and gui_add() must also manage the case where the GUI already exists,
-# the two functions are pretty much interchangeable!
+#' Creation and management of GUI objects.
+#'
+#' Create and manipulate `gui` object to manage SciViews-compatible GUIs
+#' (Graphical User Interfaces).
+#'
+#' @param gui.name The name of the GUI. It is also the name of the object stored
+#' in `SciViews:TempEnv` where you can access it.
+#' @param widgets The list of widgets that GUI uses, listed in a priority order.
+#' @param ask Logical indicating if simple dialog boxes should be display
+#' (`ask = TRUE`), or if those dialog boxes are by-passed, using default values
+#' to simulate script running in non interactive mode, or to test scripts
+#' without interruption, using only provided default values (useful for
+#' automated tests).
+#' @export
+#' @seealso [gui], [setUI()], [dont_ask()]
+#' @keywords misc
+#' @concept GUI API implementation
+#' @examples
+#' # A 'gui' object named .GUI is automatically created in 'SciViews:TempEnv'
+#' # gui_list()
+#'
+#' # Create a new GUI object to manage a separate GUI in the same R session
+#' gui_add("myGUI")
+#' gui_list()
+#'
+#' # Change general properties of this GUI
+#' gui_ask(myGUI) <- FALSE
+#' # Add widgets to this GUI (you must provide methods for them)
+#' # see the svDialogstcltk package for examples
+#' gui_widgets(myGUI) <- "tcltkWidgets"
+#' gui_widgets(myGUI) # Added to existing ones if reset is FALSE
+#'
+#' # Remove this new GUI
+#' gui_remove("myGUI")
 gui_add <- function(gui.name = ".GUI", widgets = c("nativeGUI", "textCLI"), ask)
   gui_change(gui.name = gui.name, widgets = widgets, ask = ask, reset = FALSE)
 
-# Backward compatibility
-guiAdd <- gui_add
+#' @export
+#' @rdname gui_add
+guiAdd <- gui_add # Backward compatibility
 
+#' @export
+#' @rdname gui_add
+#' @param reset Should the GUI's main parameters (widgets, ask) be reset to
+#' default values?
 gui_change <- function(gui.name = ".GUI", widgets = c("nativeGUI", "textCLI"),
 reset = FALSE, ask) {
   gui.name <- as.character(gui.name)[1]
@@ -43,9 +79,12 @@ reset = FALSE, ask) {
   gui_obj
 }
 
-# Backward compatibility
-guiChange <- gui_change
+#' @export
+#' @rdname gui_add
+guiChange <- gui_change # Backward compatibility
 
+#' @export
+#' @rdname gui_add
 gui_remove <- function(gui.name) {
   # Eliminate the corresponding variable, after some housekeeping
   if (gui.name == ".GUI")
@@ -58,10 +97,12 @@ gui_remove <- function(gui.name) {
   invisible(TRUE)
 }
 
-# Backward compatibility
-guiRemove <- gui_remove
+#' @export
+#' @rdname gui_add
+guiRemove <- gui_remove # Backward compatibility
 
-# List all GUI objects found in SciViews:TempEnv
+#' @export
+#' @rdname gui_add
 gui_list <- function() {
   lst <- ls(envir = .TempEnv(), all.names = TRUE)
   if (!length(lst))
@@ -72,9 +113,14 @@ gui_list <- function() {
     is.gui(get(x, envir = .TempEnv(), inherits = FALSE)))]
 }
 
-# Backward compatibility
-guiList <- gui_list
+#' @export
+#' @rdname gui_add
+guiList <- gui_list # Backward compatibility
 
+#' @export
+#' @rdname gui_add
+#' @param gui A `gui` object. If provided, it supersedes any value provided in
+#' `gui.name`.
 gui_widgets <- function(gui, gui.name = ".GUI") {
   if (missing(gui)) {
     if (exists(gui.name, envir = .TempEnv(), inherits = FALSE)) {
@@ -92,9 +138,16 @@ gui_widgets <- function(gui, gui.name = ".GUI") {
   classes
 }
 
-# Backward compatibility
-guiWidgets <- gui_widgets
+#' @export
+#' @rdname gui_add
+guiWidgets <- gui_widgets # Backward compatibility
 
+#' @export
+#' @rdname gui_add
+#' @param x A `gui` object.
+#' @param value The list of widgets to add to this GUI, in priority order, or
+#' should we change ask to `TRUE`, `FALSE` or `NULL` (then, use the default
+#' value stored in `getOption("gui.ask")`).
 `gui_widgets<-` <- function(x, reset = FALSE, value) {
   value <- as.character(value)
   if (isTRUE(as.logical(reset))) {
@@ -110,9 +163,13 @@ guiWidgets <- gui_widgets
   x
 }
 
-# Backward compatibility
-`guiWidgets<-` <- `gui_widgets<-`
+#' @export
+#' @rdname gui_add
+`guiWidgets<-` <- `gui_widgets<-` # Backward compatibility
 
+#' @export
+#' @rdname gui_add
+#' @param gui.or.name A `gui` object or its name.
 gui_ask <- function(gui.or.name, ask) {
   if (missing(gui.or.name)) {
     # Query or change the default value in 'gui.ask' option
@@ -157,9 +214,12 @@ gui_ask <- function(gui.or.name, ask) {
   invisible(res)
 }
 
-# Backward compatibility
-guiAsk <- gui_ask
+#' @export
+#' @rdname gui_add
+guiAsk <- gui_ask # Backward compatibility
 
+#' @export
+#' @rdname gui_add
 `gui_ask<-` <- function(x, value) {
   if (!is.gui(x))
     stop("gui_ask must be applied to a 'gui' object")
@@ -168,5 +228,6 @@ guiAsk <- gui_ask
   x
 }
 
-# Backward compatibility
-`guiAsk<-` <- `gui_ask<-`
+#' @export
+#' @rdname gui_add
+`guiAsk<-` <- `gui_ask<-` # Backward compatibility

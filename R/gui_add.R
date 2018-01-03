@@ -1,12 +1,12 @@
 #' Creation and management of GUI objects.
 #'
-#' Create and manipulate `gui` object to manage SciViews-compatible GUIs
+#' Create and manipulate `gui` objects to manage SciViews-compatible GUIs
 #' (Graphical User Interfaces).
 #'
 #' @param gui.name The name of the GUI. It is also the name of the object stored
 #' in `SciViews:TempEnv` where you can access it.
 #' @param widgets The list of widgets that GUI uses, listed in a priority order.
-#' @param ask Logical indicating if simple dialog boxes should be display
+#' @param ask Logical indicating if modal dialog boxes should be display
 #' (`ask = TRUE`), or if those dialog boxes are by-passed, using default values
 #' to simulate script running in non interactive mode, or to test scripts
 #' without interruption, using only provided default values (useful for
@@ -17,7 +17,7 @@
 #' @concept GUI API implementation
 #' @examples
 #' # A 'gui' object named .GUI is automatically created in 'SciViews:TempEnv'
-#' # gui_list()
+#' gui_list()
 #'
 #' # Create a new GUI object to manage a separate GUI in the same R session
 #' gui_add("myGUI")
@@ -26,7 +26,7 @@
 #' # Change general properties of this GUI
 #' gui_ask(myGUI) <- FALSE
 #' # Add widgets to this GUI (you must provide methods for them)
-#' # see the svDialogstcltk package for examples
+#' # see the svDialogs package for examples
 #' gui_widgets(myGUI) <- "tcltkWidgets"
 #' gui_widgets(myGUI) # Added to existing ones if reset is FALSE
 #'

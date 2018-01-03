@@ -51,8 +51,9 @@ non interactive mode, or ask is \code{FALSE}.}
 by-passed.}
 }
 \description{
-This is the preferred way to set a property in a `gui`` object or to indicate
-that an UI action is about to start.
+Using \code{setUI()} is the preferred way to set a property in a \code{gui} object.
+Similarly, \code{startUI()} should be used to indicate that an UI action requiring
+user input is initiated (say, a modal input or file selection dialog box).
 }
 \section{Methods (by class)}{
 \itemize{
@@ -67,15 +68,15 @@ that an UI action is about to start.
 myInput <- function(default = "an answer", gui = .GUI) {
 
   # Start a GUI action... or by-pass it!
-    if (gui$startUI("myInput", call = match.call(), default = default,
-       msg = "Displaying an imput dialog box",
-       msg.no.ask = "An input dialog box was by-passed")) {
+  if (gui$startUI("myInput", call = match.call(), default = default,
+    msg = "Displaying an input dialog box",
+    msg.no.ask = "An input dialog box was by-passed")) {
 
-    # Here the input dialog box is displayed and R waits from user's action
+    # Here the input dialog box is displayed and R waits for user feedback
     # ... [your code here]
     res <- "some results" # Imagine this is the text typed in the box
 
-    # When the dialog box is closed, the function should do:
+    # When the input dialog box is closed, the function should do:
     setUI(res = res, status = NULL)
   }
   invisible(gui)

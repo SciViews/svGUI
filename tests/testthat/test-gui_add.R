@@ -9,7 +9,7 @@ test_that("GUI creation", {
   expect_identical(myGUI$name, "myGUI")
   expect_true("myGUI" %in% gui_list())
 
-  expect_output(print(myGUI), "A SciViews user interface named myGUI")
+  expect_output(print(myGUI), "Graphical User Interface: myGUI")
   expect_output(print(myGUI), "using widgets from: textCLI")
   expect_output(print(myGUI), "currently inactivated")
 })

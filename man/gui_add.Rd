@@ -59,7 +59,7 @@ in \code{SciViews:TempEnv} where you can access it.}
 
 \item{widgets}{The list of widgets that GUI uses, listed in a priority order.}
 
-\item{ask}{Logical indicating if simple dialog boxes should be display
+\item{ask}{Logical indicating if modal dialog boxes should be display
 (\code{ask = TRUE}), or if those dialog boxes are by-passed, using default values
 to simulate script running in non interactive mode, or to test scripts
 without interruption, using only provided default values (useful for
@@ -80,12 +80,12 @@ value stored in \code{getOption("gui.ask")}).}
 \item{gui.or.name}{A \code{gui} object or its name.}
 }
 \description{
-Create and manipulate \code{gui} object to manage SciViews-compatible GUIs
+Create and manipulate \code{gui} objects to manage SciViews-compatible GUIs
 (Graphical User Interfaces).
 }
 \examples{
 # A 'gui' object named .GUI is automatically created in 'SciViews:TempEnv'
-# gui_list()
+gui_list()
 
 # Create a new GUI object to manage a separate GUI in the same R session
 gui_add("myGUI")
@@ -94,7 +94,7 @@ gui_list()
 # Change general properties of this GUI
 gui_ask(myGUI) <- FALSE
 # Add widgets to this GUI (you must provide methods for them)
-# see the svDialogstcltk package for examples
+# see the svDialogs package for examples
 gui_widgets(myGUI) <- "tcltkWidgets"
 gui_widgets(myGUI) # Added to existing ones if reset is FALSE
 

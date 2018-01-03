@@ -5,26 +5,86 @@
 \alias{svGUI-package}
 \title{SciViews - Functions to Manage GUIs in R}
 \description{
-The SciViews svGUI package provides function to implement GUI
-(Graphical User Interface) in R. It is independent from any particular GUI
-toolkit, centralize info about GUI elements currently used, and dispatch GUI
-functions to the particular toolkits used. It use the S3 object \code{gui}.
+The SciViews svGUI package eases the management of Graphical User Interfaces
+(GUI) in R. It is independent from any particular GUI widgets (Tk, Gtlk2,
+native, ...). It centralizes info about GUI elements currently used, and
+it dispatches GUI calls to the particular toolkits in use in function of the
+context (is R run at the terminal, within a Tk application, a HTML page?).
+}
+\details{
+The \code{gui} object defines a succession of GUI (or non-GUI) \code{widgets} to use.
+These could be \code{tcltk} (with the \strong{tcltk} or \strong{tcltk2} R packages), \code{gtk2}
+(with the \strong{RGtk2} R package), \code{shiny}, etc. You are in charge of managing
+these different variants of your GUI. The \code{gui} object just defines the order
+of preference for those different variants, and to get a fallback mechanism
+in case your GUI is not implemented with given \code{widgets}. \code{.GUI} uses, by
+default, \code{widgets = c("nativeGUI", "textCLI")}. \code{"nativeGUI"} is, as you figure
+it out, a native version of the GUI element. A good example is
+\code{base::file.choose()} that displays a native dialog box to select a file.
+\code{"textCLI"} is \strong{not} a GUI version, but a way to ask the same information
+to the user at the terminal (or Command Line, CLI). In the example, it could
+be \code{base::readline("File to use? ")}. You GUI should consider the proposed
+\code{widgets} in turn and use the first one on the list that is implemented. It
+is advised to implement also a version of \code{"textCLI"}, in case R is run in a
+text-only context. Finally, if none of the \code{widgets} can be run, your code
+should fall back to use a default value for the file, or to stop gracefully.
+This is required for non-interactive use or testing of your code, are when
+your GUI \code{ask} is set to \code{FALSE}.
+
+Basic GUI items, like message boxes, input box, file or directory selectors,
+etc. could easily be implemented with different \code{widgets} and in a
+\code{"textCLI"} version (see the \strong{svDialogs} package). So, if your GUI uses the
+present mechanisms, your end-user could choose the version of the dialog
+boxes he prefers to use, given the context (R run at the terminal, in R Gui,
+in RStudio or RStudio Server; under Windows, Mac OS, or Linux, ...). The
+choice is easy: just change the sequence of \code{widgets} in the corresponding
+\code{gui} object. Of course, several \code{gui} objects can live together at the same
+time, providing different and independent contexts (say, one GUI build with
+\strong{RGtk2} would favor \code{"gtk2"}, but another GUI using \strong{tcltk} would either
+favor \code{"tcltk"} of course, or \code{c("nativeGUI", "tcltk")} just because native
+dialog boxes may look better, for instance, under macOS or Linux.
+
+Finally, the \code{gui} object is basically a separate environment where you could
+also store various GUI-related objects. On one hand, it does not "pollute"
+other environments (the worse practice being to put \strong{tcltk}-related
+variables in the global environment), and on the other hand, it is very easy
+to get rid of all the GUI-related objects, just by \code{gui_remove("myGUI")}.
+Also, GUI-related items should not be \code{save.image()}d and re\code{load()}ed with
+the other objects, and the \code{gui}, being located outside of \code{.GlobalEnv}
+prevents it.
+
+Methods for \code{gui} objects can dispatch as usual using
+\code{amethod(...., gui = agui)} but note that these methods do not dispatch on
+the first provided argument, but to the named argument \code{gui}. There is
+another way to call \code{gui} methods: \code{agui$amethod(...)}. This may be a
+convenient alternative for those who prefer this style of calling object's
+methods (also used in reference classes, \strong{proto} or \strong{R6} objects).
 }
 \section{Methods}{
 
 
-\code{gui} implements two methods:
+svGUI implements four methods for the S3 \code{gui} object:
 
 \describe{
-\item{\code{print}}{Give information about the current state of the GUI}
-\item{\code{$}}{Give access to various GUI properties.}
+\item{\code{print()}}{Give information about the current state of the GUI}
+\item{\code{$}}{Give access to various GUI properties or objects.}
+\item{\code{startUI()}}{Start an UI action that requires to interrupt R (for
+instance, display an input dialog box) and manage to inform the \code{gui}
+object about it.}
+\item{\code{setUI()}}{Change the \code{status} of the UI action currently running.}
 }
 }
 
 \section{Important functions}{
 
-\code{\link[=gui_add]{gui_add()}} and \code{\link[=gui_change]{gui_change()}} for construction and management,
-\code{\link[=dont_ask]{dont_ask()}} to determine if the GUI can interrupt R to ask something to the
-user.
+\code{\link[=gui_add]{gui_add()}} and \code{\link[=gui_change]{gui_change()}} for construction and management of \code{gui}s,
+\code{\link[=gui_remove]{gui_remove()}} to cleanly eliminate all GUI elements,
+\code{\link[=gui_list]{gui_list()}} to list all \code{gui} objects currently loaded in the R session,
+\link{gui_widget} to manage the widgets this GUI can use, and in which order,
+\code{\link[=gui_ask]{gui_ask()}} allows to (temporarilly) disable UI actions to avoid any code
+that would require input from the user (e.g., to run in batch mode),
+\code{\link[=dont_ask]{dont_ask()}} to determine if the GUI cannot interrupt R to ask something to
+the user, and should proceed differently (say, just use a defaut value for an
+input).
 }
 

@@ -3,37 +3,32 @@
 \name{dont_ask}
 \alias{dont_ask}
 \alias{dontAsk}
-\title{Can we ask something to the user though the GUI?}
+\title{Can we interrupt R to ask something to the user though the GUI?}
 \usage{
 dont_ask(gui = .GUI)
 
 dontAsk(gui = .GUI)
 }
 \arguments{
-\item{gui}{a \code{gui} object.}
+\item{gui}{A \code{gui} object.}
 }
 \value{
 \code{TRUE} if the GUI cannot interrupt R. The function triggering the
 dialog box should then not be displayed and it should return the default
 value as the result. The function returns \code{TRUE} if R is run in a non
 interactive session, or if \code{ask} is set to \code{FALSE} for the GUI, or if it is
-not specified (\code{NULL}) then \code{getOptions("gui.ask")} is used.
+not specified (\code{ask} is \code{NULL}) then \code{getOptions("gui.ask")} is used.
 }
 \description{
-Determine if R code execution can be interrupted by the GUI, e.g., a modal
-dialog box.
+Determine if R code execution can be interrupted by the GUI, e.g., using a
+modal dialog box. It depends both on R being in \code{interactive()} mode and the
+\code{ask} flag of the GUI being set to \code{TRUE}.
 }
 \details{
 \code{dontAsk} and \code{dont_ask} are aliases.
-
-Methods for \code{gui} objects can dispatch as usual using
-\code{amethod(...., gui = agui)} but note that these methods do not dispatch on
-first provided argument, but to the named argument \code{gui}. There is another
-way to call \code{gui} methods: \code{agui$amethod(....)}. This may be a convenient
-alternative for those who prefer this style of calling object's methods.
 }
 \examples{
-# What's the current state for the default GUI?
+# What is the current state for the default GUI?
 dont_ask()
 }
 \seealso{

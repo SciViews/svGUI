@@ -3,7 +3,7 @@
 #' The `gui` object contains and manages GUI-related data.
 #'
 #' @param gui A `gui` object..
-#' @param x A function for `$`, or an object for the others.
+#' @param x An object or a function for `$`.
 #' @param ... Further arguments (not used yet).
 #' @seealso [gui_add()]
 #' @keywords misc
@@ -13,6 +13,13 @@
 #' gui_add("myGUI")
 #' is.gui(myGUI)
 #' myGUI
+#' # Put an object in the GUI environment (fake button)
+#' myGUI$button <- "my_button"
+#' # Retrieve it
+#' myGUI$button
+#' # Get the curent status of the GUI
+#' myGUI$status
+#' # Eliminate this GUI and all its objects
 #' gui_remove("myGUI")
 #' @name gui
 NULL
@@ -23,12 +30,12 @@ NULL
   if (!exists(x, envir = gui))
     return(NULL)
 
-  fun <- get(x, envir = gui)
-  if (is.function(fun)) {
-    fun <- function(...)
+  obj <- get(x, envir = gui)
+  if (is.function(obj)) {
+    obj <- function(...)
       get(x, envir = gui)(..., gui = gui)
   }
-	fun
+	obj
 }
 
 #' @export
@@ -37,7 +44,7 @@ print.gui <- function(x, ...) {
   if (x$name == ".GUI") {
     cat("The default SciViews GUI (.GUI)\n")
   } else {
-    cat("A SciViews user interface named ", x$name, "\n", sep = "")
+    cat("Graphical User Interface: ", x$name, "\n", sep = "")
   }
   cat("using widgets from: ", paste(gui_widgets(x), collapse = ", "),
     "\n", sep = "")

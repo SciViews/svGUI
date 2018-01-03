@@ -16,7 +16,7 @@ is.gui(x)
 \arguments{
 \item{gui}{A \code{gui} object..}
 
-\item{x}{A function for \code{$}, or an object for the others.}
+\item{x}{An object or a function for \code{$}.}
 
 \item{...}{Further arguments (not used yet).}
 }
@@ -28,6 +28,13 @@ The \code{gui} object contains and manages GUI-related data.
 gui_add("myGUI")
 is.gui(myGUI)
 myGUI
+# Put an object in the GUI environment (fake button)
+myGUI$button <- "my_button"
+# Retrieve it
+myGUI$button
+# Get the curent status of the GUI
+myGUI$status
+# Eliminate this GUI and all its objects
 gui_remove("myGUI")
 }
 \seealso{

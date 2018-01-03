@@ -63,7 +63,7 @@
 #' [gui_add()] and [gui_change()] for construction and management of `gui`s,
 #' [gui_remove()] to cleanly eliminate all GUI elements,
 #' [gui_list()] to list all `gui` objects currently loaded in the R session,
-#' [gui_widget] to manage the widgets this GUI can use, and in which order,
+#' [gui_widgets()] to manage the widgets this GUI can use, and in which order,
 #' [gui_ask()] allows to (temporarilly) disable UI actions to avoid any code
 #' that would require input from the user (e.g., to run in batch mode),
 #' [dont_ask()] to determine if the GUI cannot interrupt R to ask something to

@@ -80,7 +80,7 @@ object about it.}
 \code{\link[=gui_add]{gui_add()}} and \code{\link[=gui_change]{gui_change()}} for construction and management of \code{gui}s,
 \code{\link[=gui_remove]{gui_remove()}} to cleanly eliminate all GUI elements,
 \code{\link[=gui_list]{gui_list()}} to list all \code{gui} objects currently loaded in the R session,
-\link{gui_widget} to manage the widgets this GUI can use, and in which order,
+\code{\link[=gui_widgets]{gui_widgets()}} to manage the widgets this GUI can use, and in which order,
 \code{\link[=gui_ask]{gui_ask()}} allows to (temporarilly) disable UI actions to avoid any code
 that would require input from the user (e.g., to run in batch mode),
 \code{\link[=dont_ask]{dont_ask()}} to determine if the GUI cannot interrupt R to ask something to

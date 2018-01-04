@@ -1,4 +1,4 @@
-#' SciViews - Functions to Manage GUIs in R
+#' SciViews - Manage GUIs in R
 #'
 #' The SciViews svGUI package eases the management of Graphical User Interfaces
 #' (GUI) in R. It is independent from any particular GUI widgets (Tk, Gtlk2,

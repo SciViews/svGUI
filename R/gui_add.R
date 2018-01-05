@@ -59,8 +59,8 @@ reset = FALSE, ask) {
       if (missing(ask)) gui_obj$ask <- NULL
     }
   } else {# Create a new 'gui' object in SciViews:TempEnv
-    if (is.na(gui.name))
-      stop("Wrong 'gui.name', provide a length 1 character string")
+    if (is.na(gui.name) || nchar(gui.name) < 1)
+      stop("Wrong 'gui.name', provide a non empty character string")
     gui_obj <- new.env(parent = .GlobalEnv)
     gui_obj$name <- gui.name
     gui_obj$ask <- NULL
@@ -68,7 +68,6 @@ reset = FALSE, ask) {
     gui_obj$res <- NULL
     gui_obj$status <- NULL
     gui_obj$widgets <- NULL
-    # Define initial inheritance
     class(gui_obj) <- unique(c(widgets, "gui", "environment"))
     assign(gui.name, gui_obj, envir = .TempEnv())
   }
@@ -89,6 +88,7 @@ gui_remove <- function(gui.name) {
   # Eliminate the corresponding variable, after some housekeeping
   if (gui.name == ".GUI")
     stop("You cannot delete the default GUI named '.GUI'! Maybe use ?gui_change.")
+
   if (!exists(gui.name, envir = .TempEnv(), inherits = FALSE))
     return(invisible(FALSE))
 
@@ -106,7 +106,7 @@ guiRemove <- gui_remove # Backward compatibility
 gui_list <- function() {
   lst <- ls(envir = .TempEnv(), all.names = TRUE)
   # This should never happen (default .GUI should always be there)
-  if (!length(lst)) #nocov
+  if (!length(lst)) # nocov
     return(character(0)) # nocov
 
   # Check which item inherits from 'gui'

@@ -30,7 +30,7 @@ NULL
   if (!exists(x, envir = gui))
     return(NULL)
 
-  obj <- get(x, envir = gui)
+  obj <- get(x, envir = gui, inherits = FALSE)
   if (is.function(obj)) {
     obj <- function(...)
       get(x, envir = gui)(..., gui = gui)

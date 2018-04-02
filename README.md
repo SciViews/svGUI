@@ -1,4 +1,4 @@
-# svGUI
+# svGUI - Functions to manage GUIs in R
 
 [![Linux & OSX Build Status](https://travis-ci.org/SciViews/svGUI.svg )](https://travis-ci.org/SciViews/svGUI)
 [![Win Build Status](https://ci.appveyor.com/api/projects/status/github/SciViews/svGUI?branch=master&svg=true)](http://ci.appveyor.com/project/phgrosjean/svGUI)
@@ -6,13 +6,6 @@
 ](https://codecov.io/github/SciViews/svGUI?branch=master)
 [![CRAN Status](http://www.r-pkg.org/badges/version/svGUI)](http://cran.r-project.org/package=svGUI)
 [![License](https://img.shields.io/badge/license-GPL-blue.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
-
-SciViews - functions to manage GUIs in R.
-
-_Build badges are as follows (R versions at the time of the build)._
-- _Status for devel R version for both Linux and Mac OS X at left._
-- _Status for the latest stable version of R under Windows at right._ 
-
 
 ## Installation
 
@@ -63,5 +56,7 @@ For further instructions, please, refer to these help pages.
 
 
 ## Note to developers
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 This package used to be developed on R-Forge in the past. However, the latest [R-Forge version](https://r-forge.r-project.org/projects/sciviews/) was moved to this Github repository on 2016-03-17 (SVN version 569). **Please, do not use R-Forge anymore for SciViews development, use this Github repository instead.**

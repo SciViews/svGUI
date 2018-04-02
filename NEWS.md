@@ -1,5 +1,10 @@
 # svGUI News
 
+## Changes in svGUI 1.0.0
+
+* Code of conduct added in Github repository.
+
+
 ## Changes in svGUI 0.9-57
 
 * Switch to snake_case function names. The camelCase version are still there for

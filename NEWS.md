@@ -4,6 +4,8 @@
 
 * Code of conduct added in Github repository.
 
+* A bug led to an error while trying to use `gui$startUI()`. Corrected.
+
 
 ## Changes in svGUI 0.9-57
 

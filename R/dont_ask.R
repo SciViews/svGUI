@@ -20,8 +20,14 @@
 #' @examples
 #' # What is the current state for the default GUI?
 #' dont_ask()
-dont_ask <- function(gui = .GUI)
+dont_ask <- function(gui = .GUI) {
+  is_interactive <- interactive()
+  # One can fool R in non-interactive mode by setting SciViews.force.interactive
+  # Note: use this carefully, and ONLY for your tests!
+  if (isTRUE(getOption("SciViews.force.interactive", default = FALSE)))
+    is_interactive <- TRUE
   !interactive() || !gui_ask(gui)
+}
 
 #' @export
 #' @rdname dont_ask

@@ -26,7 +26,7 @@ dont_ask <- function(gui = .GUI) {
   # Note: use this carefully, and ONLY for your tests!
   if (isTRUE(getOption("SciViews.force.interactive", default = FALSE)))
     is_interactive <- TRUE
-  !interactive() || !gui_ask(gui)
+  !is_interactive || !gui_ask(gui)
 }
 
 #' @export

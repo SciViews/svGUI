@@ -18,17 +18,29 @@ test_that("GUI change widgets", {
   gui_add("myGUI", widgets = c("nativeGUI", "textCLI"))
   expect_output(print(myGUI), "using widgets from: nativeGUI, textCLI")
   expect_identical(gui_widgets(myGUI), c("nativeGUI", "textCLI"))
+  gui_change("myGUI", widgets = "nativeGUI", reset = TRUE)
+  expect_identical(gui_widgets(myGUI), "nativeGUI")
+  expect_identical(gui_widgets(gui.name = "myGUI"), "nativeGUI")
+  expect_identical(gui_widgets(myGUI, reset = TRUE) <- "textCLI", "textCLI")
+  expect_identical(gui_widgets(myGUI), "textCLI")
+  expect_error(gui_widgets(gui.name = "non_existing_gui"),
+    "'gui' object 'non_existing_gui' not found",
+    fixed = TRUE
+  )
 })
 
 test_that("GUI change and ask", {
   # The returned value is the previous one
+  gui_ask(myGUI) <- FALSE
   expect_false(gui_ask(myGUI))
   expect_false(gui_ask(myGUI, ask  = TRUE))
   expect_true(gui_ask(myGUI))
   gui_ask(myGUI) <- FALSE
   expect_false(gui_ask(myGUI))
+  expect_false(gui_ask("myGUI"))
   gui_ask(myGUI) <- NULL
   expect_identical(gui_ask(myGUI), gui_ask())
+  expect_identical(gui_ask("myGUI"), gui_ask())
   gui_ask(ask = FALSE)
   # In case of wrong gui
   assign(".nonGUI", list(a = 1, b = 2), envir = .TempEnv())

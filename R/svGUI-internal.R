@@ -9,8 +9,8 @@
 }# nocov end
 
 #.onUnload <- function(libpath) {
-#  # We do nothing, because other packages may also use .GUI
-#  # So, we leave it there!
+  # We do nothing, because other packages may also use .GUI
+  # So, we leave it there!
 #}
 
 .packageName <- "svGUI" # nocov

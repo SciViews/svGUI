@@ -57,6 +57,39 @@ test_that("Print default .GUI information", {
   expect_output(print(.GUI), "textCLI")
 })
 
+test_that("Print extended .GUI information for call", {
+  test_gui <- function(message = "Test", default = "", ..., gui = .GUI) {
+    gui$startUI("test_gui", call = match.call(), default = default,
+      msg = "A simulated call to a GUI element",
+      msg.no.ask = "The simulated GUI was by-passed")
+    invisible(gui)
+  }
+  test_gui()
+  # .GUI should contain information about a by-passed GUI modal item
+  expect_output(print(.GUI), "Last call: test_gui\\(gui = \\.GUI\\)")
+  expect_output(print(.GUI), "Last status: by-passed")
+  expect_output(print(.GUI), "The simulated GUI was by-passed")
+
+  test_error_gui <- function(msg = "An example error message", gui = .GUI) {
+    gui$setUI(status = "error", msg = msg, widgets = "none")
+  }
+  test_error_gui()
+  # Error should be reported correctly in .GUI
+  expect_output(print(.GUI), "Last call: test_gui\\(gui = \\.GUI\\)")
+  expect_output(print(.GUI), "Last widgets used: none")
+  expect_output(print(.GUI), "Last status: error")
+  expect_output(print(.GUI), "An example error message")
+
+  test_close_gui <- function(res = "Some fake results", gui = .GUI) {
+    gui$setUI(res = res, status = NULL)
+  }
+  test_close_gui()
+  # .GUI should indicate the GUI modal item is closed and return its result
+  expect_output(print(.GUI), "Last call: test_gui\\(gui = \\.GUI\\)")
+  expect_output(print(.GUI), "Last status: ok")
+  expect_output(print(.GUI), "\\[1\\] \"Some fake results\"")
+})
+
 test_that("Cannot remove .GUI or non existing GUIs", {
   expect_error(
     gui_remove(".GUI"),

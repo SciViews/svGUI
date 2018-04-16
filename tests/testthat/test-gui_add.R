@@ -14,6 +14,51 @@ test_that("GUI creation", {
   expect_output(print(myGUI), "currently inactivated")
 })
 
+test_that("GUI change widgets", {
+  gui_add("myGUI", widgets = c("nativeGUI", "textCLI"))
+  expect_output(print(myGUI), "using widgets from: nativeGUI, textCLI")
+  expect_identical(gui_widgets(myGUI), c("nativeGUI", "textCLI"))
+})
+
+test_that("GUI change and ask", {
+  # The returned value is the previous one
+  expect_false(gui_ask(myGUI))
+  expect_false(gui_ask(myGUI, ask  = TRUE))
+  expect_true(gui_ask(myGUI))
+  gui_ask(myGUI) <- FALSE
+  expect_false(gui_ask(myGUI))
+  gui_ask(myGUI) <- NULL
+  expect_identical(gui_ask(myGUI), gui_ask())
+  gui_ask(ask = FALSE)
+  # In case of wrong gui
+  expect_error(gui_ask(startUI) <- TRUE,
+    "gui_ask must be applied to a 'gui' object",
+    fixed = TRUE
+  )
+  expect_error(gui_ask("non_existing_gui"),
+    "'gui' object 'non_existing_gui' not found",
+    fixed = TRUE
+  )
+})
+
+test_that("Global change of ask", {
+  gui_ask(ask = TRUE)
+  expect_true(gui_ask())
+  # When changing value, it returns old one
+  gui_ask(ask  = TRUE)
+  expect_true(gui_ask(ask  = FALSE))
+  expect_false(gui_ask(ask  = NULL))
+  expect_null(gui_ask(ask  = TRUE))
+  expect_true(gui_ask(ask  = NULL))
+})
+
+test_that("Cannot overwrite an existing object in SciViews:TempEnv", {
+  expect_error(gui_add("startUI"),
+    "'gui.name' must be a character string naming a 'gui' object",
+    fixed = FALSE
+  )
+})
+
 test_that("GUI deletion", {
   expect_true(gui_remove("myGUI"))
   expect_false("myGUI" %in% gui_list())

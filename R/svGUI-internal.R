@@ -4,8 +4,8 @@
   # In case svGUI is NOT loaded on the search path, I need a reference to
   # startUI() and setUI() anyway (for code like gui$startUI(....)).
   # So, create one on SciViews:TempEnv
-  assign("startUI", function(...) svGUI::startUI(...), envir = .TempEnv())
-  assign("setUI", function(...) svGUI::setUI(...), envir = .TempEnv())
+  #assign("startUI", function(...) svGUI::startUI(...), envir = .TempEnv())
+  #assign("setUI", function(...) svGUI::setUI(...), envir = .TempEnv())
 }# nocov end
 
 #.onUnload <- function(libpath) {

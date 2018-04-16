@@ -31,7 +31,8 @@ test_that("GUI change and ask", {
   expect_identical(gui_ask(myGUI), gui_ask())
   gui_ask(ask = FALSE)
   # In case of wrong gui
-  expect_error(gui_ask(startUI) <- TRUE,
+  assign(".nonGUI", list(a = 1, b = 2), envir = .TempEnv())
+  expect_error(gui_ask(.nonGUI) <- TRUE,
     "gui_ask must be applied to a 'gui' object",
     fixed = TRUE
   )
@@ -53,7 +54,7 @@ test_that("Global change of ask", {
 })
 
 test_that("Cannot overwrite an existing object in SciViews:TempEnv", {
-  expect_error(gui_add("startUI"),
+  expect_error(gui_add(".nonGUI"),
     "'gui.name' must be a character string naming a 'gui' object",
     fixed = FALSE
   )

@@ -68,6 +68,9 @@ reset = FALSE, ask) {
     gui_obj$res <- NULL
     gui_obj$status <- NULL
     gui_obj$widgets <- NULL
+    # In order to allow access to these function when svGUI is not imported
+    gui_obj$startUI <- function(...) svGUI::startUI(...)
+    gui_obj$setUI <- function(...) svGUI::setUI(...)
     class(gui_obj) <- unique(c(widgets, "gui", "environment"))
     assign(gui.name, gui_obj, envir = .TempEnv())
   }

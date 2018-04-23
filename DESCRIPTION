@@ -5,7 +5,7 @@ Date: 2018-04-02
 Title: SciViews - Manage GUIs in R
 Description: The SciViews svGUI package eases the management of Graphical User
   Interfaces (GUI) in R. It is independent from any particular GUI widgets (Tk,
-  Gtlk2, native, ...). It centralizes info about GUI elements currently used,
+  Gtk2, native, ...). It centralizes info about GUI elements currently used,
   and it dispatches GUI calls to the particular toolkits in use in function of
   the context (is R run at the terminal, within a Tk application, a HTML page?).
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),

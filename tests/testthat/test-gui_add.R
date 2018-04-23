@@ -40,6 +40,9 @@ test_that("GUI change and ask", {
   expect_false(gui_ask("myGUI"))
   gui_ask(myGUI) <- NULL
   expect_identical(gui_ask(myGUI), gui_ask())
+  gui_ask(myGUI) <- TRUE
+  expect_true(gui_ask(myGUI))
+  gui_ask(myGUI, ask = NULL)
   expect_identical(gui_ask("myGUI"), gui_ask())
   gui_ask(ask = FALSE)
   # In case of wrong gui

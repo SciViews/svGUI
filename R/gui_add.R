@@ -95,7 +95,6 @@ gui_remove <- function(gui.name) {
   if (!exists(gui.name, envir = .TempEnv(), inherits = FALSE))
     return(invisible(FALSE))
 
-  # TODO: housekeeping here!
   rm(list = gui.name, envir = .TempEnv(), inherits = FALSE)
   invisible(TRUE)
 }

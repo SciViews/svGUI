@@ -80,7 +80,7 @@ value stored in \code{getOption("gui.ask")}).}
 \item{gui.or.name}{A \code{gui} object or its name.}
 }
 \description{
-Create and manipulate \code{gui} objects to manage SciViews-compatible GUIs
+Create and manipulate \code{gui} objects to manage 'SciViews'-compatible GUIs
 (Graphical User Interfaces).
 }
 \examples{

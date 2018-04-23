@@ -41,13 +41,13 @@ all its methods.}
 GUI was by-passed because \code{dont_ask()} returns \code{TRUE}), "error",
 or any other status indicator suitable for the current state of your GUI.}
 
-\item{msg}{The message expliciting the status. Cannot be provided without
+\item{msg}{The message that explains the status. Cannot be provided without
 status.}
 
 \item{default}{The default value to return if the UI is by-passed because in
 non interactive mode, or ask is \code{FALSE}.}
 
-\item{msg.no.ask}{The message expliciting the status in case the UI is
+\item{msg.no.ask}{The message that explains the status in case the UI is
 by-passed.}
 }
 \description{

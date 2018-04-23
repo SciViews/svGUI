@@ -5,11 +5,12 @@
 \alias{svGUI-package}
 \title{SciViews - Manage GUIs in R}
 \description{
-The SciViews svGUI package eases the management of Graphical User Interfaces
-(GUI) in R. It is independent from any particular GUI widgets (Tk, Gtlk2,
-native, ...). It centralizes info about GUI elements currently used, and
-it dispatches GUI calls to the particular toolkits in use in function of the
-context (is R run at the terminal, within a Tk application, a HTML page?).
+The 'SciViews' 'svGUI' package eases the management of Graphical User
+Interfaces (GUI) in R. It is independent from any particular GUI widgets
+('Tk', 'Gtk2', native, ...). It centralizes info about GUI elements currently
+used, and it dispatches GUI calls to the particular toolkits in use in
+function of the context (is R run at the terminal, within a 'Tk' application,
+a HTML page?).
 }
 \details{
 The \code{gui} object defines a succession of GUI (or non-GUI) \code{widgets} to use.
@@ -33,20 +34,20 @@ your GUI \code{ask} is set to \code{FALSE}.
 
 Basic GUI items, like message boxes, input box, file or directory selectors,
 etc. could easily be implemented with different \code{widgets} and in a
-\code{"textCLI"} version (see the \strong{svDialogs} package). So, if your GUI uses the
-present mechanisms, your end-user could choose the version of the dialog
-boxes he prefers to use, given the context (R run at the terminal, in R Gui,
-in RStudio or RStudio Server; under Windows, Mac OS, or Linux, ...). The
+\code{"textCLI"} version (see the \strong{'svDialogs'} package). So, if your GUI uses
+the present mechanisms, your end-user could choose the version of the dialog
+boxes he prefers to use, given the context (R run at the terminal, in 'RGui',
+in 'RStudio' or 'RStudio Server'; under Windows, Mac OS, or Linux, ...). The
 choice is easy: just change the sequence of \code{widgets} in the corresponding
 \code{gui} object. Of course, several \code{gui} objects can live together at the same
 time, providing different and independent contexts (say, one GUI build with
-\strong{RGtk2} would favor \code{"gtk2"}, but another GUI using \strong{tcltk} would either
-favor \code{"tcltk"} of course, or \code{c("nativeGUI", "tcltk")} just because native
-dialog boxes may look better, for instance, under macOS or Linux.
+\strong{'RGtk2'} would favor \code{"gtk2"}, but another GUI using \strong{'tcltk'} would
+either favor \code{"tcltk"} of course, or \code{c("nativeGUI", "tcltk")} just because
+native dialog boxes may look better, for instance, under macOS or Linux.
 
 Finally, the \code{gui} object is basically a separate environment where you could
 also store various GUI-related objects. On one hand, it does not "pollute"
-other environments (the worse practice being to put \strong{tcltk}-related
+other environments (the worse practice being to put \strong{'tcltk'}-related
 variables in the global environment), and on the other hand, it is very easy
 to get rid of all the GUI-related objects, just by \code{gui_remove("myGUI")}.
 Also, GUI-related items should not be \code{save.image()}d and re\code{load()}ed with
@@ -58,7 +59,7 @@ Methods for \code{gui} objects can dispatch as usual using
 the first provided argument, but to the named argument \code{gui}. There is
 another way to call \code{gui} methods: \code{agui$amethod(...)}. This may be a
 convenient alternative for those who prefer this style of calling object's
-methods (also used in reference classes, \strong{proto} or \strong{R6} objects).
+methods (also used in reference classes, \strong{'proto'} or \strong{'R6'} objects).
 }
 \section{Methods}{
 
@@ -81,10 +82,10 @@ object about it.}
 \code{\link[=gui_remove]{gui_remove()}} to cleanly eliminate all GUI elements,
 \code{\link[=gui_list]{gui_list()}} to list all \code{gui} objects currently loaded in the R session,
 \code{\link[=gui_widgets]{gui_widgets()}} to manage the widgets this GUI can use, and in which order,
-\code{\link[=gui_ask]{gui_ask()}} allows to (temporarilly) disable UI actions to avoid any code
+\code{\link[=gui_ask]{gui_ask()}} allows to (temporary) disable UI actions to avoid any code
 that would require input from the user (e.g., to run in batch mode),
 \code{\link[=dont_ask]{dont_ask()}} to determine if the GUI cannot interrupt R to ask something to
-the user, and should proceed differently (say, just use a defaut value for an
-input).
+the user, and should proceed differently (say, just use a default value for
+an input).
 }
 

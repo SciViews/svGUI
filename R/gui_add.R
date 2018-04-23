@@ -1,6 +1,6 @@
 #' Creation and management of GUI objects.
 #'
-#' Create and manipulate `gui` objects to manage SciViews-compatible GUIs
+#' Create and manipulate `gui` objects to manage 'SciViews'-compatible GUIs
 #' (Graphical User Interfaces).
 #'
 #' @param gui.name The name of the GUI. It is also the name of the object stored
@@ -50,7 +50,8 @@ reset = FALSE, ask) {
   if (exists(gui.name, envir = .TempEnv(), inherits = FALSE)) {
     gui_obj <- get(gui.name, envir = .TempEnv(), inherits = FALSE)
     if (!is.gui(gui_obj))
-      stop("'gui.name' must be a character string naming a 'gui' object in SciViews:TempEnv")
+      stop("'gui.name' must be a character string naming a 'gui' object',
+        ' in SciViews:TempEnv")
     gui_widgets(gui_obj, reset = reset) <- widgets
     if (isTRUE(reset)) {
       # Make sure name is correct
@@ -90,7 +91,8 @@ guiChange <- gui_change # Backward compatibility
 gui_remove <- function(gui.name) {
   # Eliminate the corresponding variable, after some housekeeping
   if (gui.name == ".GUI")
-    stop("You cannot delete the default GUI named '.GUI'! Maybe use ?gui_change.")
+    stop("You cannot delete the default GUI named '.GUI'!',
+      ' Maybe use ?gui_change.")
 
   if (!exists(gui.name, envir = .TempEnv(), inherits = FALSE))
     return(invisible(FALSE))
@@ -112,8 +114,10 @@ gui_list <- function() {
     return(character(0)) # nocov
 
   # Check which item inherits from 'gui'
-  lst[sapply(lst, function(x)
-    is.gui(get(x, envir = .TempEnv(), inherits = FALSE)))]
+  lst[vapply(lst, function(x)
+    is.gui(get(x, envir = .TempEnv(), inherits = FALSE)),
+    TRUE
+  )]
 }
 
 #' @export
@@ -195,7 +199,8 @@ gui_ask <- function(gui.or.name, ask) {
         stop("'gui' object '", gui.or.name, "' not found")
       gui_obj <- get(gui.or.name, envir = .TempEnv(), inherits = FALSE)
       if (!is.gui(gui_obj))
-        stop("'gui.or.name' must be a 'gui' object in SciViews:TempEnv or its name")
+        stop("'gui.or.name' must be a 'gui' object in',
+          ' SciViews:TempEnv or its name")
     }
 
     if (missing(ask)) {

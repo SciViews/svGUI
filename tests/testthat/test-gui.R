@@ -93,8 +93,8 @@ test_that("Print extended .GUI information for call", {
 test_that("Cannot remove .GUI or non existing GUIs", {
   expect_error(
     gui_remove(".GUI"),
-    "You cannot delete the default GUI named '.GUI'! Maybe use ?gui_change.",
-    fixed = TRUE
+    "You cannot delete the default GUI named '.GUI'!",
+    fixed = FALSE
   )
   expect_false(gui_remove("non_existing_GUI"))
 })

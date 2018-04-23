@@ -46,7 +46,7 @@ setUI <- function(..., gui = .GUI)
 #' "busy-modal" (a modal dialog box is currently displayed), "by-passed" (the
 #' GUI was by-passed because `dont_ask()` returns `TRUE`), "error",
 #' or any other status indicator suitable for the current state of your GUI.
-#' @param msg The message expliciting the status. Cannot be provided without
+#' @param msg The message that explains the status. Cannot be provided without
 #' status.
 setUI.gui <- function(fun, call, args, res, widgets, status, msg = NULL,
 ..., gui = .GUI) {
@@ -54,7 +54,8 @@ setUI.gui <- function(fun, call, args, res, widgets, status, msg = NULL,
     if (!inherits(call, "call"))
       stop("'call' must be a call expression (use match.call)")
     if (missing(fun))
-      stop("'fun' must be provided with call (original name of the calling function)")
+      stop("'fun' must be provided with call',
+        ' (original name of the calling function)")
     fun <- as.character(fun)[1]
     # Rework call to make sure to have original name for function and gui
     call[1] <- call(fun)
@@ -89,7 +90,7 @@ startUI <- function(..., gui = .GUI)
 #' @describeIn setUI Start an UI for a `gui` object.
 #' @param default The default value to return if the UI is by-passed because in
 #' non interactive mode, or ask is `FALSE`.
-#' @param msg.no.ask The message expliciting the status in case the UI is
+#' @param msg.no.ask The message that explains the status in case the UI is
 #' by-passed.
 startUI.gui <- function(fun, call, default, widgets = NULL,
 status = "busy-modal", msg = "Displaying a modal dialog box",

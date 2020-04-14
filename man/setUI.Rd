@@ -9,14 +9,21 @@
 \usage{
 setUI(..., gui = .GUI)
 
-\method{setUI}{gui}(fun, call, args, res, widgets, status, msg = NULL, ...,
-  gui = .GUI)
+\method{setUI}{gui}(fun, call, args, res, widgets, status, msg = NULL, ..., gui = .GUI)
 
 startUI(..., gui = .GUI)
 
-\method{startUI}{gui}(fun, call, default, widgets = NULL,
-  status = "busy-modal", msg = "Displaying a modal dialog box",
-  msg.no.ask = "A modal dialog box was by-passed", ..., gui = .GUI)
+\method{startUI}{gui}(
+  fun,
+  call,
+  default,
+  widgets = NULL,
+  status = "busy-modal",
+  msg = "Displaying a modal dialog box",
+  msg.no.ask = "A modal dialog box was by-passed",
+  ...,
+  gui = .GUI
+)
 }
 \arguments{
 \item{...}{Any other property of the GUI, provided as named arguments.}
@@ -85,7 +92,5 @@ myInput <- function(default = "an answer", gui = .GUI) {
 \seealso{
 \code{\link[=gui_add]{gui_add()}}, \code{\link[=$.gui]{$.gui()}}
 }
-\concept{
-GUI API implementation
-}
+\concept{GUI API implementation}
 \keyword{misc}

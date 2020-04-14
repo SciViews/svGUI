@@ -3,9 +3,10 @@
 .git
 .git/*
 README.md
-NEWS.md
 FAQ.md
+TODO.md
 CONDUCT.md
+LICENSE
 Makefile
 .Rprofile
 ^\.Rproj\.user$
@@ -13,4 +14,9 @@ Makefile
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^.*\.Rproj$
-LICENSE
+^doc$
+^Meta$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

@@ -14,13 +14,13 @@ a HTML page?).
 }
 \details{
 The \code{gui} object defines a succession of GUI (or non-GUI) \code{widgets} to use.
-These could be \code{tcltk} (with the \strong{tcltk} or \strong{tcltk2} R packages), \code{gtk2}
-(with the \strong{RGtk2} R package), \code{shiny}, etc. You are in charge of managing
-these different variants of your GUI. The \code{gui} object just defines the order
-of preference for those different variants, and to get a fallback mechanism
-in case your GUI is not implemented with given \code{widgets}. \code{.GUI} uses, by
-default, \code{widgets = c("nativeGUI", "textCLI")}. \code{"nativeGUI"} is, as you figure
-it out, a native version of the GUI element. A good example is
+These could be \code{tcltk} (with the \strong{'tcltk'} or \strong{'tcltk2'} R packages),
+\code{gtk2} (with the \strong{'RGtk2'} R package), \code{shiny}, etc. You are in charge of
+managing these different variants of your GUI. The \code{gui} object just defines
+the order of preference for those different variants, and to get a fallback
+mechanism in case your GUI is not implemented with given \code{widgets}. \code{.GUI}
+uses, by default, \code{widgets = c("nativeGUI", "textCLI")}. \code{"nativeGUI"} is,
+as you figure it out, a native version of the GUI element. A good example is
 \code{base::file.choose()} that displays a native dialog box to select a file.
 \code{"textCLI"} is \strong{not} a GUI version, but a way to ask the same information
 to the user at the terminal (or Command Line, CLI). In the example, it could

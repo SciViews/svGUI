@@ -40,7 +40,5 @@ gui_remove("myGUI")
 \seealso{
 \code{\link[=gui_add]{gui_add()}}
 }
-\concept{
-GUI API implementation
-}
+\concept{GUI API implementation}
 \keyword{misc}

@@ -8,13 +8,13 @@
 #' a HTML page?).
 #'
 #' The `gui` object defines a succession of GUI (or non-GUI) `widgets` to use.
-#' These could be `tcltk` (with the **tcltk** or **tcltk2** R packages), `gtk2`
-#' (with the **RGtk2** R package), `shiny`, etc. You are in charge of managing
-#' these different variants of your GUI. The `gui` object just defines the order
-#' of preference for those different variants, and to get a fallback mechanism
-#' in case your GUI is not implemented with given `widgets`. `.GUI` uses, by
-#' default, `widgets = c("nativeGUI", "textCLI")`. `"nativeGUI"` is, as you figure
-#' it out, a native version of the GUI element. A good example is
+#' These could be `tcltk` (with the **'tcltk'** or **'tcltk2'** R packages),
+#' `gtk2` (with the **'RGtk2'** R package), `shiny`, etc. You are in charge of
+#' managing these different variants of your GUI. The `gui` object just defines
+#' the order of preference for those different variants, and to get a fallback
+#' mechanism in case your GUI is not implemented with given `widgets`. `.GUI`
+#' uses, by default, `widgets = c("nativeGUI", "textCLI")`. `"nativeGUI"` is,
+#' as you figure it out, a native version of the GUI element. A good example is
 #' `base::file.choose()` that displays a native dialog box to select a file.
 #' `"textCLI"` is **not** a GUI version, but a way to ask the same information
 #' to the user at the terminal (or Command Line, CLI). In the example, it could

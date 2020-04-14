@@ -23,11 +23,19 @@ gui_add(gui.name = ".GUI", widgets = c("nativeGUI", "textCLI"), ask)
 
 guiAdd(gui.name = ".GUI", widgets = c("nativeGUI", "textCLI"), ask)
 
-gui_change(gui.name = ".GUI", widgets = c("nativeGUI", "textCLI"),
-  reset = FALSE, ask)
+gui_change(
+  gui.name = ".GUI",
+  widgets = c("nativeGUI", "textCLI"),
+  reset = FALSE,
+  ask
+)
 
-guiChange(gui.name = ".GUI", widgets = c("nativeGUI", "textCLI"),
-  reset = FALSE, ask)
+guiChange(
+  gui.name = ".GUI",
+  widgets = c("nativeGUI", "textCLI"),
+  reset = FALSE,
+  ask
+)
 
 gui_remove(gui.name)
 
@@ -104,7 +112,5 @@ gui_remove("myGUI")
 \seealso{
 \link{gui}, \code{\link[=setUI]{setUI()}}, \code{\link[=dont_ask]{dont_ask()}}
 }
-\concept{
-GUI API implementation
-}
+\concept{GUI API implementation}
 \keyword{misc}

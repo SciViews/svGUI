@@ -21,11 +21,15 @@
   name <- "SciViews:TempEnv"
   srch <- search()
   pos <-  match(name, srch)
-  if (is.na(pos)) { # Must create it
-    pos <- length(srch) - 1
+  if (is.na(pos)) {# Must create it
+    # This code is only executed when the package is loaded. So, it is not
+    # possible to test it... but its correct execution is a preliminary or
+    # we are unable to creat GUI objects in that environment. So, it is tested
+    # indirectly!
+    pos <- length(srch) - 1 # nocov start
     `SciViews:TempEnv` <- list()
     Attach <- function(...) get("attach", mode = "function")(...)
     Attach(`SciViews:TempEnv`, pos = pos)
-  }
+  } # nocov end
   pos.to.env(pos)
 }

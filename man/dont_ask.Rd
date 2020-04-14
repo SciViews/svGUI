@@ -34,7 +34,5 @@ dont_ask()
 \seealso{
 \code{\link[=gui_ask]{gui_ask()}}, \link{gui}
 }
-\concept{
-GUI API implementation
-}
+\concept{GUI API implementation}
 \keyword{misc}

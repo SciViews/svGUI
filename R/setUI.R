@@ -76,7 +76,7 @@ setUI.gui <- function(fun, call, args, res, widgets, status, msg = NULL,
   l <- length(more_args)
   n <- names(more_args)
   if (l) for (i in 1:l) {
-    gui[[n[i]]] <- more_args[i]
+    gui[[n[i]]] <- more_args[[i]]
   }
   invisible(gui)
 }

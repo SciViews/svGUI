@@ -90,6 +90,14 @@ guiChange <- gui_change # Backward compatibility
 #' @rdname gui_add
 gui_remove <- function(gui.name) {
   # Eliminate the corresponding variable, after some housekeeping
+  gui.name <- as.character(gui.name)
+  if (length(gui.name) < 1)
+    return(invisible(TRUE))
+  if (length(gui.name) > 1) {
+    warning("more than one item in 'gui.name', only the first one is removed")
+    gui.name <- gui.name[1]
+  }
+
   if (gui.name == ".GUI")
     stop("You cannot delete the default GUI named '.GUI'!',
       ' Maybe use ?gui_change.")

@@ -60,7 +60,9 @@ print.gui <- function(x, ...) {
       } else {
         cat("* Last status: ", x$status, "\n", sep = "")
       }
-    } else cat("* Last status: ", x$status, " (", cmt, ")\n", sep = "")
+    } else {
+      cat("* Last status: ", x$status, " (", cmt, ")\n", sep = "")
+    }
     cat("* Last result:\n")
     print(x$res)
   }

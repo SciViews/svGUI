@@ -55,6 +55,13 @@ test_that("Print default .GUI information", {
   expect_output(print(.GUI), "The default SciViews GUI")
   expect_output(print(.GUI), "using widgets from:")
   expect_output(print(.GUI), "textCLI")
+  # If call is defined, it should print additional information
+  startUI("myfun", (function() match.call())())
+  expect_output(print(.GUI), "Last status: ")
+  # Remove comment on status and see if it is still displayed by print()
+  .GUI$status <- as.character(.GUI$status)
+  expect_output(print(.GUI), "Last status: ")
+  setUI(status = "ok")
 })
 
 test_that("Print extended .GUI information for call", {
@@ -97,4 +104,80 @@ test_that("Cannot remove .GUI or non existing GUIs", {
     fixed = FALSE
   )
   expect_false(gui_remove("non_existing_GUI"))
+})
+
+test_that("setUI correctly handles (wrong) arguments", {
+  expect_error(
+    setUI(ls, call = "wrong_call_object"),
+    "'call' must be a call expression (use match.call)",
+    fixed = TRUE
+  )
+  # If call = is provided, fun = must also be provided
+  expect_error(
+    setUI(call = (function() match.call())()),
+    "'fun' must be provided with call'"
+  )
+  # Args added (should be a lit, but for now, accepts anything)
+  test_args <- "some arguments"
+  setUI(args = test_args)
+  expect_identical(.GUI$args, test_args)
+  # Remove args
+  rm("args", envir = .GUI)
+  # It is an error to provide msg without status
+  expect_error(
+    setUI(msg = "A message..."),
+    "You must provide 'status' at the same time as 'msg'"
+  )
+  # Test it again with status = "ok"
+  saved_status <- .GUI$status
+  setUI(status = "ok", msg = "A message...")
+  expect_identical(.GUI$status, structure("ok", comment = "A message..."))
+  # Reset previous status
+  .GUI$status <- saved_status
+  # Test if one can add items in .GUI through ... in setUI()
+  setUI(a_test_item = "Some value")
+  expect_identical(.GUI$a_test_item, "Some value")
+  # Reset the item
+  rm("a_test_item", envir = .GUI)
+  expect_null(.GUI$a_test_item)
+})
+
+test_that("startUI works as expected", {
+  oask <- gui_ask(.GUI)
+  # startUI() when dont_ask(.GUI) is TRUE (should return FALSE)
+  gui_ask(.GUI) <- FALSE
+  .GUI$res <- NULL
+  expect_false(startUI())
+  # res must be NULL
+  expect_null(.GUI$res)
+  # status must be "by-passed", with default comment
+  expect_identical(.GUI$status,
+     structure("by-passed", comment = "A modal dialog box was by-passed"))
+  # widgets must be "none"
+  expect_identical(.GUI$widgets, "none")
+  expect_output(print(.GUI),
+    "(it is currently inactivated - ask == FALSE)",
+    fixed = TRUE
+  )
+
+  # startUI() when dont_ask() is forced to FALSE
+  gui_ask(.GUI) <- TRUE
+  .GUI$res <- NULL
+  # We are probably in non interactive() mode, this forces the mode
+  # (don't use it outside pure testing and controlled conditions!)
+  options(SciViews.force.interactive = TRUE)
+  # startUI() must now return TRUE
+  expect_true(startUI())
+  # res must now contain NA
+  expect_identical(.GUI$res, NA)
+  # status must be "busy-modal", with default comment
+  expect_identical(.GUI$status,
+    structure("busy-modal", comment = "Displaying a modal dialog box"))
+  # widgets must be NULL, since it was not provided
+  expect_null(.GUI$widgets)
+
+  # Restore the system
+  setUI(status = "ok", msg = "Done testing")
+  options(SciViews.force.interactive = NULL)
+  gui_ask(.GUI) <- oask
 })

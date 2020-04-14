@@ -12,6 +12,20 @@ test_that("GUI creation", {
   expect_output(print(myGUI), "Graphical User Interface: myGUI")
   expect_output(print(myGUI), "using widgets from: textCLI")
   expect_output(print(myGUI), "currently inactivated")
+
+  # Challenge gui_add()/gui_change() with wrong arguments
+  expect_error(gui_add(NA),
+    "Wrong 'gui.name', provide a non empty character string",
+    fixed = TRUE
+  )
+  expect_error(gui_add(character(0)),
+    "Wrong 'gui.name', provide a non empty character string",
+    fixed = TRUE
+  )
+  expect_error(gui_add(NULL),
+    "Wrong 'gui.name', provide a non empty character string",
+    fixed = TRUE
+  )
 })
 
 test_that("GUI change widgets", {
@@ -25,6 +39,10 @@ test_that("GUI change widgets", {
   expect_identical(gui_widgets(myGUI), "textCLI")
   expect_error(gui_widgets(gui.name = "non_existing_gui"),
     "'gui' object 'non_existing_gui' not found",
+    fixed = TRUE
+  )
+  expect_error(gui_widgets(gui = NULL),
+    "Provide a 'gui' object or its name",
     fixed = TRUE
   )
 })
@@ -44,6 +62,12 @@ test_that("GUI change and ask", {
   expect_true(gui_ask(myGUI))
   gui_ask(myGUI, ask = NULL)
   expect_identical(gui_ask("myGUI"), gui_ask())
+  gui_change(".GUI", ask = TRUE)
+  expect_true(.GUI$ask)
+  gui_change(".GUI", ask = FALSE)
+  expect_false(.GUI$ask)
+  gui_change(".GUI", ask = NULL)
+  expect_null(.GUI$ask)
   gui_ask(ask = FALSE)
   # In case of wrong gui
   assign(".nonGUI", list(a = 1, b = 2), envir = .TempEnv())
@@ -55,6 +79,14 @@ test_that("GUI change and ask", {
     "'gui' object 'non_existing_gui' not found",
     fixed = TRUE
   )
+  # Create a fake object in SciViews:TempEnv and try use it
+  TempEnv <- get(".TempEnv", envir = getNamespace("svGUI"))
+  assign("fake_test_object", 1, envir = TempEnv())
+  expect_error(gui_ask("fake_test_object"),
+    "'gui.or.name' must be a 'gui' object",
+    fixed = TRUE
+  )
+  rm("fake_test_object", envir = TempEnv())
 })
 
 test_that("Global change of ask", {
@@ -78,4 +110,14 @@ test_that("Cannot overwrite an existing object in SciViews:TempEnv", {
 test_that("GUI deletion", {
   expect_true(gui_remove("myGUI"))
   expect_false("myGUI" %in% gui_list())
+  # Return FALSE, if the GUI does not exists
+  expect_false(gui_remove("myGUI"))
+  # Return TRUE, if not GUI is provided
+  expect_true(gui_remove(character(0)))
+  expect_true(gui_remove(NULL))
+  # Issue a warning if more than one GUI name is provided
+  expect_warning(gui_remove(c("myGUI1", "myGUI2")),
+    "more than one item in 'gui.name', only the first one is removed",
+    fixed = TRUE
+  )
 })

@@ -37,7 +37,6 @@ R should install all required dependencies automatically, and then it should com
 
 Latest devel version of 'svGUI' (source + Windows binaires for the latest stable version of R at the time of compilation) is also available from [appveyor](https://ci.appveyor.com/project/phgrosjean/svGUI/build/artifacts).
 
-
 ## Usage
 
 Make the 'svGUI' package available in your R session:
@@ -51,7 +50,7 @@ Get help about this package:
 ```r
 library(help = "svGUI")
 help("svGUI-package")
-vignette"svGUI") # None is installed with install_github()
+vignette("svGUI") # None is installed with install_github()
 ```
 
 For further instructions, please, refer to the help pages at https://www.sciviews.org/svGUI/.

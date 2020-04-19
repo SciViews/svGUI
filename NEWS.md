@@ -40,7 +40,7 @@
 
 - Large refactoring of SciViews-R packages. Most of the functions to interface with Komodo are moved to the 'svKomodo' package: `koCmd()`, `guiInstall()`, `guiUninstall()`, `guiRefresh()`, `guiAutoRefresh()`. The functions dealing with the httpServer are moved to 'svHttp': `parHttp()`, `startHttpServer()`, `stopHttpServer()`, `HttpServerPort`, `HttpServerName()` & `HttpClientsNames()`. So... basically, nothing much left here from previous version! But now it contains functions to manage 'gui' objects, used by 'svWidgets' and 'svDialogs'.
 
-- S3 objects of class 'gui' are added. They are supposed to be created by `guiAdd()` and a series of functions is provided to manipulate them. They are not terribly useful by themselve, but thay provide the fundation for a flexible organisation of GUI elements in R (see for instance 'svDialogs' or 'svWidgets').
+- S3 objects of class 'gui' are added. They are supposed to be created by `guiAdd()` and a series of functions is provided to manipulate them. They are not terribly useful by themselves, but they provide the foundation for a flexible organization of GUI elements in R (see for instance 'svDialogs' or 'svWidgets').
 
 # svGUI 0.9-51
 

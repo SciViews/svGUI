@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.sciviews.org/svGUI/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/reference/dont_ask.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/reference/gui.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/reference/gui_add.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/reference/setUI.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/reference/svGUI-package.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/articles/svGUI.html</loc>
+  </url>
+</urlset>

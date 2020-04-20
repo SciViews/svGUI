@@ -2,17 +2,25 @@
 % Please edit documentation in R/svGUI-package.R
 \docType{package}
 \name{svGUI-package}
+\alias{svGUI}
 \alias{svGUI-package}
-\title{SciViews - Manage GUIs in R}
+\title{svGUI: 'SciViews' - Manage GUIs in R}
 \description{
+The 'SciViews' 'svGUI' package eases the management of Graphical
+  User Interfaces (GUI) in R. It is independent from any particular GUI widgets
+  ('Tk', 'Gtk2', native, ...). It centralizes info about GUI elements currently
+  used, and it dispatches GUI calls to the particular toolkits in use in
+  function of the context (is R run at the terminal, within a 'Tk' application,
+  a HTML page?).
+}
+\details{
 The 'SciViews' 'svGUI' package eases the management of Graphical User
 Interfaces (GUI) in R. It is independent from any particular GUI widgets
 ('Tk', 'Gtk2', native, ...). It centralizes info about GUI elements currently
 used, and it dispatches GUI calls to the particular toolkits in use in
 function of the context (is R run at the terminal, within a 'Tk' application,
 a HTML page?).
-}
-\details{
+
 The \code{gui} object defines a succession of GUI (or non-GUI) \code{widgets} to use.
 These could be \code{tcltk} (with the \strong{'tcltk'} or \strong{'tcltk2'} R packages),
 \code{gtk2} (with the \strong{'RGtk2'} R package), \code{shiny}, etc. You are in charge of
@@ -53,13 +61,6 @@ to get rid of all the GUI-related objects, just by \code{gui_remove("myGUI")}.
 Also, GUI-related items should not be \code{save.image()}d and re\code{load()}ed with
 the other objects, and the \code{gui}, being located outside of \code{.GlobalEnv}
 prevents it.
-
-Methods for \code{gui} objects can dispatch as usual using
-\code{amethod(...., gui = agui)} but note that these methods do not dispatch on
-the first provided argument, but to the named argument \code{gui}. There is
-another way to call \code{gui} methods: \code{agui$amethod(...)}. This may be a
-convenient alternative for those who prefer this style of calling object's
-methods (also used in reference classes, \strong{'proto'} or \strong{'R6'} objects).
 }
 \section{Methods}{
 
@@ -89,3 +90,27 @@ the user, and should proceed differently (say, just use a default value for
 an input).
 }
 
+\section{Dispatch mechanism}{
+
+Methods for \code{gui} objects can dispatch as usual using
+\code{amethod(...., gui = agui)} but note that these methods do not dispatch on
+the first provided argument, but to the named argument \code{gui}. There is
+another way to call \code{gui} methods: \code{agui$amethod(...)}. This may be a
+convenient alternative for those who prefer this style of calling object's
+methods (also used in reference classes, \strong{'proto'} or \strong{'R6'} objects).
+}
+
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/SciViews/svGUI}
+  \item \url{http://www.sciviews.org/svGUI/}
+  \item Report bugs at \url{https://github.com/SciViews/svGUI/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Philippe Grosjean \email{phgrosjean@sciviews.org} (\href{https://orcid.org/0000-0002-2694-9471}{ORCID})
+
+}
+\keyword{internal}

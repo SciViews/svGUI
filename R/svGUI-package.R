@@ -1,5 +1,4 @@
-#' SciViews - Manage GUIs in R
-#'
+#' @details
 #' The 'SciViews' 'svGUI' package eases the management of Graphical User
 #' Interfaces (GUI) in R. It is independent from any particular GUI widgets
 #' ('Tk', 'Gtk2', native, ...). It centralizes info about GUI elements currently
@@ -60,6 +59,7 @@
 #'    object about it.}
 #'  \item{`setUI()`}{Change the `status` of the UI action currently running.}
 #' }
+#'
 #' @section Important functions:
 #' [gui_add()] and [gui_change()] for construction and management of `gui`s,
 #' [gui_remove()] to cleanly eliminate all GUI elements,
@@ -71,13 +71,19 @@
 #' the user, and should proceed differently (say, just use a default value for
 #' an input).
 #'
-#' @details Methods for `gui` objects can dispatch as usual using
+#' @section Dispatch mechanism:
+#' Methods for `gui` objects can dispatch as usual using
 #' `amethod(...., gui = agui)` but note that these methods do not dispatch on
 #' the first provided argument, but to the named argument `gui`. There is
 #' another way to call `gui` methods: `agui$amethod(...)`. This may be a
 #' convenient alternative for those who prefer this style of calling object's
 #' methods (also used in reference classes, **'proto'** or **'R6'** objects).
 #'
-#' @docType package
-#' @name svGUI-package
+#' @keywords internal
+"_PACKAGE"
+
+# The following block is used by usethis to automatically manage
+# roxygen namespace tags. Modify with care!
+## usethis namespace: start
+## usethis namespace: end
 NULL

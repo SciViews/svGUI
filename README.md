@@ -2,12 +2,12 @@
 # svGUI
 
 <!-- badges: start -->
-[![Linux build status](https://travis-ci.org/SciViews/svGUI.svg )](https://travis-ci.org/SciViews/svGUI)
-[![Win build status](https://ci.appveyor.com/api/projects/status/github/SciViews/svGUI?branch=master&svg=true)](http://ci.appveyor.com/project/phgrosjean/svGUI)
+[![Linux build status](https://travis-ci.com/SciViews/svGUI.svg )](https://travis-ci.com/SciViews/svGUI)
+[![Win build status](https://ci.appveyor.com/api/projects/status/github/SciViews/svGUI?branch=master&svg=true)](https://ci.appveyor.com/project/phgrosjean/svGUI)
 [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/svGUI/master.svg)
 ](https://codecov.io/github/SciViews/svGUI?branch=master)
-[![CRAN status](http://www.r-pkg.org/badges/version/svGUI)](http://cran.r-project.org/package=svGUI)
-[![License](https://img.shields.io/badge/license-GPL-blue.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![CRAN status](https://www.r-pkg.org/badges/version/svGUI)](https://cran.r-project.org/package=svGUI)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 <!-- badges: end -->
 

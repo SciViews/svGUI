@@ -85,9 +85,15 @@
   gtag('config', 'UA-462421-8');
 </script>-->
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <!-- preloader start -->
@@ -129,12 +135,6 @@
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/svGUI.html">Get started</a>
 </li>
 <li>
@@ -145,7 +145,7 @@
 </li>
         <li>
   <a href="https://github.com/SciViews/svGUI/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -193,7 +193,7 @@ is.gui(x)</pre>
     </tr>
     <tr>
       <th>x</th>
-      <td><p>An object or a function for <code>$</code>.</p></td>
+      <td><p>An object or a function for <code><a href='https://rdrr.io/r/base/Extract.html'>$</a></code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -207,14 +207,20 @@ is.gui(x)</pre>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Create a GUI</span>
-<span class='fu'><a href='gui_add.html'>gui_add</a></span>(<span class='st'>"myGUI"</span>)</div><div class='output co'>#&gt; Graphical User Interface: myGUI
-#&gt; using widgets from: nativeGUI, textCLI</div><div class='input'><span class='fu'>is.gui</span>(<span class='no'>myGUI</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='no'>myGUI</span></div><div class='output co'>#&gt; Graphical User Interface: myGUI
+<span class='fu'><a href='gui_add.html'>gui_add</a></span><span class='op'>(</span><span class='st'>"myGUI"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Graphical User Interface: myGUI
+#&gt; using widgets from: nativeGUI, textCLI</div><div class='input'><span class='fu'>is.gui</span><span class='op'>(</span><span class='va'>myGUI</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='va'>myGUI</span>
+</div><div class='output co'>#&gt; Graphical User Interface: myGUI
 #&gt; using widgets from: nativeGUI, textCLI</div><div class='input'><span class='co'># Put an object in the GUI environment (fake button)</span>
-<span class='no'>myGUI</span>$<span class='no'>button</span> <span class='kw'>&lt;-</span> <span class='st'>"my_button"</span>
+<span class='va'>myGUI</span><span class='op'>$</span><span class='va'>button</span> <span class='op'>&lt;-</span> <span class='st'>"my_button"</span>
 <span class='co'># Retrieve it</span>
-<span class='no'>myGUI</span>$<span class='no'>button</span></div><div class='output co'>#&gt; [1] "my_button"</div><div class='input'><span class='co'># Get the curent status of the GUI</span>
-<span class='no'>myGUI</span>$<span class='no'>status</span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='co'># Eliminate this GUI and all its objects</span>
-<span class='fu'><a href='gui_add.html'>gui_remove</a></span>(<span class='st'>"myGUI"</span>)</div></pre>
+<span class='va'>myGUI</span><span class='op'>$</span><span class='va'>button</span>
+</div><div class='output co'>#&gt; [1] "my_button"</div><div class='input'><span class='co'># Get the curent status of the GUI</span>
+<span class='va'>myGUI</span><span class='op'>$</span><span class='va'>status</span>
+</div><div class='output co'>#&gt; NULL</div><div class='input'><span class='co'># Eliminate this GUI and all its objects</span>
+<span class='fu'><a href='gui_add.html'>gui_remove</a></span><span class='op'>(</span><span class='st'>"myGUI"</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -358,6 +364,8 @@ is.gui(x)</pre>
 
   
 
+
+  
 
   </body>
 </html>

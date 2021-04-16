@@ -1,8 +1,8 @@
 Package: svGUI
 Type: Package
 Version: 1.0.1
-Date: 2020-04-14
-Title: 'SciViews' - Manage GUIs in R
+Date: 2021-04-16
+Title: SciViews - Manage GUIs in R
 Description: The 'SciViews' 'svGUI' package eases the management of Graphical
   User Interfaces (GUI) in R. It is independent from any particular GUI widgets
   ('Tk', 'Gtk2', native, ...). It centralizes info about GUI elements currently
@@ -17,12 +17,12 @@ Depends: R (>= 2.6.0)
 Suggests: 
     covr,
     knitr,
+    markdown,
     testthat,
     spelling
 License: GPL-2
-URL: https://github.com/SciViews/svGUI, http://www.sciviews.org/svGUI/
+URL: https://github.com/SciViews/svGUI, https://www.sciviews.org/svGUI/
 BugReports: https://github.com/SciViews/svGUI/issues
-LazyData: yes
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 VignetteBuilder: knitr

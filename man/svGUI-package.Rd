@@ -4,7 +4,7 @@
 \name{svGUI-package}
 \alias{svGUI}
 \alias{svGUI-package}
-\title{svGUI: 'SciViews' - Manage GUIs in R}
+\title{svGUI: SciViews - Manage GUIs in R}
 \description{
 The 'SciViews' 'svGUI' package eases the management of Graphical
   User Interfaces (GUI) in R. It is independent from any particular GUI widgets
@@ -104,7 +104,7 @@ methods (also used in reference classes, \strong{'proto'} or \strong{'R6'} objec
 Useful links:
 \itemize{
   \item \url{https://github.com/SciViews/svGUI}
-  \item \url{http://www.sciviews.org/svGUI/}
+  \item \url{https://www.sciviews.org/svGUI/}
   \item Report bugs at \url{https://github.com/SciViews/svGUI/issues}
 }
 

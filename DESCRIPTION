@@ -13,7 +13,7 @@ Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   comment = c(ORCID = "0000-0002-2694-9471")))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends: R (>= 2.6.0)
-Suggests: covr, knitr, markdown, testthat, spelling
+Suggests: covr, knitr, rmarkdown, testthat, spelling
 License: GPL-2
 URL: https://github.com/SciViews/svGUI, https://www.sciviews.org/svGUI/
 BugReports: https://github.com/SciViews/svGUI/issues

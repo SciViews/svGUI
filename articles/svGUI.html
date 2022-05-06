@@ -107,9 +107,9 @@
       <h1 data-toc-skip>svGUI - Manage R GUIs in a central place</h1>
                         <h4 data-toc-skip class="author">Philippe Grosjean (<a href="mailto:phgrosjean@sciviews.org" class="email">phgrosjean@sciviews.org</a>)</h4>
             
-            <h4 data-toc-skip class="date">2021-04-16</h4>
+            <h4 data-toc-skip class="date">2022-05-06</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/SciViews/svGUI/blob/master/vignettes/svGUI.Rmd" class="external-link"><code>vignettes/svGUI.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/SciViews/svGUI/blob/HEAD/vignettes/svGUI.Rmd" class="external-link"><code>vignettes/svGUI.Rmd</code></a></small>
       <div class="hidden name"><code>svGUI.Rmd</code></div>
 
     </div>
@@ -119,9 +119,9 @@
 <p>R is designed to be used in different ways. The “Command Line Interface” (CLI) is a first way to interact with R. However, R also supports various “Graphical User Interfaces” (GUI), like <strong>RGui.exe</strong> on Windows, <strong>R.app</strong> on MacOS, <strong>RStudio</strong>, etc. It also provides bridge to a few graphical toolkits or widgets, namely <strong>Tk</strong> and <strong>Gtk2</strong>. Other GUIs are build using these widgets, like <strong>R Commander</strong>. However, the different GUI items are not always collaborating well with each other, and it is sometimes hard to know which GUI is currently running in the R environment.</p>
 <p>Moreover, GUIs are sometimes criticized for leading to not reproducible analyses, because they imply user interaction. It is sometimes useful to be able to tune off GUI actions in a script, in order to make it run non-interactively, and in a reproducible way (providing you give a default value that can be used for the tests).</p>
 <p>‘svGUI’ solves these two problems by exposing information and status about running GUIs in R in a central place, and by allowing to by-pass GUI elements like modal dialog boxes on request, for one or all running GUIs. Here is how.</p>
-<div id="central-location-for-gui-information-and-status" class="section level1">
-<h1 class="hasAnchor">
-<a href="#central-location-for-gui-information-and-status" class="anchor"></a>Central location for GUI information and status</h1>
+<div class="section level2">
+<h2 id="central-location-for-gui-information-and-status">Central location for GUI information and status<a class="anchor" aria-label="anchor" href="#central-location-for-gui-information-and-status"></a>
+</h2>
 <p>‘svGUI’ uses a ‘gui’ S3 object to store information about a GUI. This object is located on the search path<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. It is basically a sub-classed environment that contains different objects. When loading ‘svGUI’, one default ‘gui’ object is created, named <code>.GUI</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SciViews/svGUI" class="external-link">svGUI</a></span><span class="op">)</span>
@@ -144,9 +144,9 @@
 <p>So, the state of the dialog box is accessible in our ‘gui’ object.</p>
 <p>Case 5 requires a little bit more of explanation, here under.</p>
 </div>
-<div id="inactivate-modal-dialog-boxes" class="section level1">
-<h1 class="hasAnchor">
-<a href="#inactivate-modal-dialog-boxes" class="anchor"></a>Inactivate modal dialog boxes</h1>
+<div class="section level2">
+<h2 id="inactivate-modal-dialog-boxes">Inactivate modal dialog boxes<a class="anchor" aria-label="anchor" href="#inactivate-modal-dialog-boxes"></a>
+</h2>
 <p>‘svGUI’ gives full power to the end-user: he can decide to inactivate (by-pass) modal dialog boxes. So, in our example, the input box would not be displayed. Of course, the code must be designed to give a default value that is suitable for the rest of the process in that case, say, a generic name. It is the responsibility of the dialog box designer to provide a way to gracefully by-pass the dialog box.</p>
 <p>In order to tell that you don’t want to be interrupted in your GUI, you just change the <code><a href="../reference/gui_add.html">gui_ask()</a></code> property to <code>FALSE</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -156,9 +156,9 @@
 <span class="fu"><a href="../reference/gui_add.html">gui_ask</a></span><span class="op">(</span><span class="va">.GUI</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">FALSE</span>
 <span class="fu"><a href="../reference/gui_add.html">gui_ask</a></span><span class="op">(</span><span class="va">.GUI</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
-<div id="gui-management-and-examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#gui-management-and-examples" class="anchor"></a>GUI management and examples</h2>
+<div class="section level3">
+<h3 id="gui-management-and-examples">GUI management and examples<a class="anchor" aria-label="anchor" href="#gui-management-and-examples"></a>
+</h3>
 <p>You can create as many different ‘gui’ objects as you want. They can differ by the GUI widgets you use (set by its <code>widgets</code> property), or can be prohibited individually to interrupt R, using <code><a href="../reference/gui_add.html">gui_ask()</a></code>. Use <code><a href="../reference/gui_add.html">gui_list()</a></code> to get the list of all currently active GUIs.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/gui_add.html">gui_add</a></span><span class="op">(</span><span class="st">"tk_gui"</span>, widgets <span class="op">=</span> <span class="st">"tcltk"</span>, ask <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>

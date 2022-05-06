@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.sciviews.org/svGUI/404.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/TODO.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/articles/svGUI.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/authors.html</loc>
+  </url>
+  <url>
     <loc>https://www.sciviews.org/svGUI/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svGUI/news/index.html</loc>
   </url>
   <url>
     <loc>https://www.sciviews.org/svGUI/reference/dont_ask.html</loc>
@@ -13,12 +37,12 @@
     <loc>https://www.sciviews.org/svGUI/reference/gui_add.html</loc>
   </url>
   <url>
+    <loc>https://www.sciviews.org/svGUI/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://www.sciviews.org/svGUI/reference/setUI.html</loc>
   </url>
   <url>
     <loc>https://www.sciviews.org/svGUI/reference/svGUI-package.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/svGUI/articles/svGUI.html</loc>
   </url>
 </urlset>

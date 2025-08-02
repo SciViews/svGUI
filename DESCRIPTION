@@ -1,24 +1,32 @@
 Package: svGUI
 Type: Package
 Version: 1.0.1
-Date: 2021-04-16
-Title: 'SciViews' - Manage GUIs in R
+Title: 'SciViews::R' - Manage GUIs in R
 Description: Manage Graphical User Interfaces (GUI) in R. It is independent from
   any particular GUI widgets ('Tk', 'Gtk2', native, ...). It centralizes info
   about GUI elements currently used, and it dispatches GUI calls to the
   particular toolkits in use in function of the context (is R run at the
   terminal, within a 'Tk' application, a HTML page?).
-Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
-  email = "phgrosjean@sciviews.org",
-  comment = c(ORCID = "0000-0002-2694-9471")))
+Authors@R: c(
+  person("Philippe", "Grosjean", role = c("aut", "cre"),
+    email = "phgrosjean@sciviews.org",
+    comment = c(ORCID = "0000-0002-2694-9471")))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
-Depends: R (>= 2.6.0)
-Suggests: covr, knitr, rmarkdown, testthat, spelling
+Depends:
+    R (>= 2.6.0)
+Suggests:
+    covr (>= 3.5.0),
+    knitr (>= 1.42),
+    rmarkdown (>= 2.21),
+    spelling (>= 2.2.1),
+    testthat (>= 3.0.0)
 License: GPL-2
-URL: https://github.com/SciViews/svGUI, https://www.sciviews.org/svGUI/
+URL: https://github.com/SciViews/svGUI, https://www.sciviews.org/svGUI/, https://sciviews.r-universe.dev/svGUI
 BugReports: https://github.com/SciViews/svGUI/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US
+ByteCompile: yes
+Config/testthat/edition: 3

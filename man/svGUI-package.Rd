@@ -4,23 +4,16 @@
 \name{svGUI-package}
 \alias{svGUI}
 \alias{svGUI-package}
-\title{svGUI: SciViews - Manage GUIs in R}
+\title{'SciViews::R' - Manage GUIs in R}
 \description{
-The 'SciViews' 'svGUI' package eases the management of Graphical
-  User Interfaces (GUI) in R. It is independent from any particular GUI widgets
-  ('Tk', 'Gtk2', native, ...). It centralizes info about GUI elements currently
-  used, and it dispatches GUI calls to the particular toolkits in use in
-  function of the context (is R run at the terminal, within a 'Tk' application,
-  a HTML page?).
-}
-\details{
 The 'SciViews' 'svGUI' package eases the management of Graphical User
 Interfaces (GUI) in R. It is independent from any particular GUI widgets
 ('Tk', 'Gtk2', native, ...). It centralizes info about GUI elements currently
 used, and it dispatches GUI calls to the particular toolkits in use in
 function of the context (is R run at the terminal, within a 'Tk' application,
 a HTML page?).
-
+}
+\details{
 The \code{gui} object defines a succession of GUI (or non-GUI) \code{widgets} to use.
 These could be \code{tcltk} (with the \strong{'tcltk'} or \strong{'tcltk2'} R packages),
 \code{gtk2} (with the \strong{'RGtk2'} R package), \code{shiny}, etc. You are in charge of
@@ -105,6 +98,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/SciViews/svGUI}
   \item \url{https://www.sciviews.org/svGUI/}
+  \item \url{https://sciviews.r-universe.dev/svGUI}
   \item Report bugs at \url{https://github.com/SciViews/svGUI/issues}
 }
 
@@ -113,4 +107,3 @@ Useful links:
 \strong{Maintainer}: Philippe Grosjean \email{phgrosjean@sciviews.org} (\href{https://orcid.org/0000-0002-2694-9471}{ORCID})
 
 }
-\keyword{internal}

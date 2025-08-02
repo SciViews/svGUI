@@ -1,12 +1,10 @@
-context("GUI")
-
 test_that(".GUI exists", {
-  expect_is(.GUI, "gui")
+  expect_s3_class(.GUI, "gui")
   expect_true(is.gui(.GUI))
   expect_identical(.GUI$name, ".GUI")
 
   expect_true(length(gui_list()) > 0)
-  expect_is(gui_list(), "character")
+  expect_type(gui_list(), "character")
   expect_true(".GUI" %in% gui_list())
 })
 
@@ -36,12 +34,12 @@ test_that("Objects can be added into .GUI", {
 
 test_that("Functions can be added into .GUI", {
   .GUI$test_fun <- function(x, ..., gui) x
-  expect_is(.GUI$test_fun, "function")
+  expect_type(.GUI$test_fun, "closure")
   expect_equal(.GUI$test_fun(1), 1)
 
   # A function with missing gui argument
   .GUI$test_fun <- function(x) x
-  expect_is(.GUI$test_fun, "function")
+  expect_type(.GUI$test_fun, "closure")
   expect_error(
     .GUI$test_fun(1),
     "unused argument (gui = gui)",

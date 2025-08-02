@@ -1,21 +1,20 @@
 ---
-title: "svGUI - Manage R GUIs in a central place"
+title: "'SciViews::R' - Manage GUIs in R"
 author: "Philippe Grosjean (phgrosjean@sciviews.org)"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
     fig_caption: yes
 vignette: >
-  %\VignetteIndexEntry{svGUI - Manage R GUIs in a central place}
+  %\VignetteIndexEntry{'SciViews::R' - Manage GUIs in R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
 R is designed to be used in different ways. The "Command Line Interface" (CLI) is a first way to interact with R. However, R also supports various "Graphical User Interfaces" (GUI), like **RGui.exe** on Windows, **R.app** on MacOS, **RStudio**, etc. It also provides bridge to a few graphical toolkits or widgets, namely **Tk** and **Gtk2**. Other GUIs are build using these widgets, like **R Commander**. However, the different GUI items are not always collaborating well with each other, and it is sometimes hard to know which GUI is currently running in the R environment.

@@ -1,5 +1,3 @@
-context("dont_ask")
-
 test_that("dont_ask returns current GUI state", {
   expect_identical(dont_ask(), !interactive() || !gui_ask(gui))
   expect_error(

@@ -64,11 +64,14 @@ user input is initiated (say, a modal input or file selection dialog box).
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{gui}: Set an UI property for a \code{gui} object.
+\item \code{setUI(gui)}: Set an UI property for a \code{gui} object.
 
-\item \code{gui}: Start an UI for a \code{gui} object.
 }}
+\section{Functions}{
+\itemize{
+\item \code{startUI(gui)}: Start an UI for a \code{gui} object.
 
+}}
 \examples{
 # Imagine you implement a new input box
 # In your function, you have this code:

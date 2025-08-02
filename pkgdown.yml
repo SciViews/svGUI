@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   svGUI: svGUI.html
-last_built: 2025-08-02T14:15Z
+last_built: 2025-08-02T14:18Z
 urls:
   reference: https://www.sciviews.org/svGUI/reference
   article: https://www.sciviews.org/svGUI/articles

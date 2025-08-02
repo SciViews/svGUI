@@ -1,6 +1,6 @@
 Package: svGUI
 Type: Package
-Version: 1.0.1
+Version: 1.0.2
 Title: 'SciViews::R' - Manage GUIs in R
 Description: Manage Graphical User Interfaces (GUI) in R. It is independent from
   any particular GUI widgets ('Tk', 'Gtk2', native, ...). It centralizes info

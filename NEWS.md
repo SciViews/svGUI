@@ -1,3 +1,7 @@
+# svGUI 1.0.2
+
+-   Updated CITATION file to the new format.
+
 # svGUI 1.0.1
 
 -   More tests added.
